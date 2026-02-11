@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Diseños Premium – Comprar y Descargar</title>
+<link rel="stylesheet" href="style.css"/>
+
+<style>
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:#fff;
+  z-index:2000;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.mobile-menu a{
+  font-size:20px;
+  margin:12px 0;
+}
+
+.mobile-menu .close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:26px;
+  cursor:pointer;
+}
+
+@media(max-width:768px){
+  .nav-links{ display:none; }
+  .menu-toggle{ display:block; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav style="display:flex;justify-content:space-between;align-items:center;">
+      <div><strong>Melamina Fácil</strong></div>
+      <div class="menu-toggle" onclick="abrirMenu()">☰</div>
+
+      <div class="nav-links">
+        <a href="curso.html">Curso</a>
+        <a href="cortes.html">Tipos de corte</a>
+        <a href="herramientas.html">Herramientas</a>
+        <a href="disenos.html">Diseños premium</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- MENÚ MÓVIL -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="close" onclick="cerrarMenu()">✕</span>
+  <a href="curso.html">Curso</a>
+  <a href="cortes.html">Tipos de corte</a>
+  <a href="herramientas.html">Herramientas</a>
+  <a href="disenos.html">Diseños premium</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+</div>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <h1>Diseños Premium</h1>
+      <p>Compra segura. Descarga inmediata tras el pago.</p>
+
+      <!-- PRODUCTOS -->
+      <div id="productos" class="grid grid-3"></div>
+
+      <div class="section notice">
+        <strong>¿Cómo funciona?</strong>
+        <ol>
+          <li>Elige tu diseño.</li>
+          <li>Paga con Stripe Checkout.</li>
+          <li>Vuelves a esta web y descargas tus archivos.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© 2026 Melamina Fácil</div>
+</footer>
+
+<!-- STRIPE -->
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+// PROTECCIÓN (opcional)
+if (!localStorage.getItem("acceso")) {
+  window.location.href = "index.html";
+}
+
+/* STRIPE CHECKOUT */
+async function checkout(productKey){
+  try{
+    const res = await fetch("/.netlify/functions/create-checkout",{
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ product: productKey })
+    });
+    const data = await res.json();
+    if(data.url){
+      window.location = data.url;
+    }else{
+      alert("No se pudo iniciar el pago.");
+    }
+  }catch(e){
+    console.error(e);
+    alert("Error al conectar con el pago.");
+  }
+}
+
+/* CARGAR PRODUCTOS DESDE CSV */
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYQbqTBrB9zkx6CQeEGf1O0HoYW3Irn4pXCdLIEMONnfr9ioPaAsnbjYHcVJaxEC7T0qfBNMDqDAYu/pub?gid=0&single=true&output=csv";
+
+async function cargarProductos(){
+  const res = await fetch(CSV_URL);
+  const texto = await res.text();
+  const filas = texto.split("\n").slice(1);
+  const contenedor = document.getElementById("productos");
+
+  filas.forEach(fila=>{
+    if(!fila.trim()) return;
+
+    const [nombre, descripcion, precio, link, imagen] = fila.split(",");
+
+    const card = document.createElement("div");
+    card.className = "card product";
+    card.innerHTML = `
+      <img src="${imagen}" alt="${nombre}">
+      <h3>${nombre}</h3>
+      <p>${descripcion}</p>
+      <div class="price">USD ${precio}</div>
+      <button class="btn" onclick="checkout('${link}')">
+        Comprar y descargar
+      </button>
+    `;
+    contenedor.appendChild(card);
+  });
+}
+cargarProductos();
+
+/* MENÚ MÓVIL */
+function abrirMenu(){
+  document.getElementById("mobileMenu").style.display = "flex";
+}
+function cerrarMenu(){
+  document.getElementById("mobileMenu").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+

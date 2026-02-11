@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Aprende Melamina Desde Cero – Diseña, Corta y Fabrica</title>
+<link rel="stylesheet" href="style.css"/>
+<meta name="description" content="Curso gratuito y tienda de diseños descargables en melamina. Aprende cortes, herramientas, diseño 3D y despiece paso a paso.">
+
+<style>
+/* ===== LOGIN MODAL ===== */
+#loginOverlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+#loginBox{
+  background:#fff;
+  width:90%;
+  max-width:420px;
+  padding:24px;
+  border-radius:14px;
+  position:relative;
+}
+#loginBox input{
+  width:100%;
+  padding:12px;
+  margin-bottom:10px;
+}
+#loginBox button{
+  width:100%;
+}
+#cerrarLogin{
+  position:absolute;
+  top:10px;
+  right:12px;
+  cursor:pointer;
+  font-size:18px;
+}
+.hero .btn-group{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div><strong>Melamina Fácil</strong></div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO (NO SE TOCA) -->
+<section class="hero">
+  <div class="container">
+    <h1>Aprende a diseñar muebles de melamina desde cero</h1>
+    <p>Guía práctica con videos, módulos paso a paso y diseños descargables.</p>
+
+    <div class="btn-group">
+      <a class="btn" href="#" onclick="abrirLogin()">Comenzar ahora</a>
+      <a class="btn alt" href="#" onclick="abrirLogin()">Ver Diseños Premium</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENIDO -->
+<section class="section">
+  <div class="container">
+    <h2>¿Qué aprenderás?</h2>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Diseño 3D básico</h3>
+        <p>Modela muebles simples en SketchUp.</p>
+      </div>
+      <div class="card">
+        <h3>Tipos de cortes</h3>
+        <p>Evita astillas y errores comunes.</p>
+      </div>
+      <div class="card">
+        <h3>Herramientas esenciales</h3>
+        <p>Equipo mínimo profesional.</p>
+      </div>
+      <div class="card">
+        <h3>Despiece profesional</h3>
+        <p>Respeta vetas y medidas.</p>
+      </div>
+      <div class="card">
+        <h3>Cálculo de materiales</h3>
+        <p>Optimiza tableros.</p>
+      </div>
+      <div class="card">
+        <h3>Descargas listas</h3>
+        <p>Planos premium.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--gray)">
+  <div class="container">
+    <h2>Clases gratuitas</h2>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>¿Qué es la melamina?</h3>
+        <iframe width="100%" height="200"
+          src="https://www.youtube.com/embed/VczR8yjkD2o"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="card">
+        <h3>Tipos de corte</h3>
+        <iframe width="100%" height="200"
+          src="https://www.youtube.com/embed/PMgDulcvFzg"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="card">
+        <h3>Herramientas básicas</h3>
+        <iframe width="100%" height="200"
+          src="https://www.youtube.com/embed/rDNnY0H1TA0"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="btn-group" style="margin-top:20px">
+      <a class="btn" href="#" onclick="abrirLogin()">Ir al Curso Completo</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">© 2026 Melamina Fácil</div>
+</footer>
+
+<!-- LOGIN OVERLAY -->
+<div id="loginOverlay">
+  <div id="loginBox">
+    <span id="cerrarLogin" onclick="cerrarLogin()">✕</span>
+    <h2>Acceso al Curso</h2>
+
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+
+    <button class="btn" onclick="login()">Ingresar</button>
+
+    <p style="text-align:center;margin-top:12px">
+      <a href="https://wa.me/51955267888" target="_blank">
+        Solicitar acceso por WhatsApp
+      </a>
+    </p>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

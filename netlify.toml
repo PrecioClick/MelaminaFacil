@@ -1,0 +1,26 @@
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+  node_version = "18"
+
+[dev]
+  framework = "#static"
+  targetPort = 8888
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/tienda"
+  to = "/disenos.html"
+  status = 301
+
+[[redirects]]
+  from = "/curso"
+  to = "/curso.html"
+  status = 301

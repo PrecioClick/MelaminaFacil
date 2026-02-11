@@ -1,0 +1,61 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Gracias por tu compra</title>
+<link rel="stylesheet" href="href="style.css"/>
+</head>
+<body>
+<header><div class="container"><nav>
+  <div><a href="index.html"><strong>Melamina Fácil</strong></a></div>
+  <div>
+    <a href="curso.html">Aprende</a>
+    <a href="disenos.html">Diseños premium</a>
+  </div>
+</nav></div></header>
+
+<main class="container section">
+  <h1>¡Pago completado!</h1>
+  <p>Validando tu compra y generando enlaces de descarga…</p>
+  <div id="downloads" class="section"></div>
+</main>
+
+<footer><div class="container">© 2026 Melamina Fácil</div></footer>
+
+<script>
+(async function(){
+  const params = new URLSearchParams(location.search);
+  const session_id = params.get("session_id");
+  if(!session_id){ document.getElementById("downloads").innerHTML = "<div class='notice'>Falta session_id</div>"; return; }
+
+  try{
+    const res = await fetch(`/.netlify/functions/get-download?session_id=${encodeURIComponent(session_id)}`);
+    if(!res.ok){ throw new Error("No se pudo validar el pago"); }
+    const data = await res.json();
+
+    if(!data.links || !data.links.length){
+      document.getElementById("downloads").innerHTML = "<div class='notice'>No se encontraron archivos.</div>";
+      return;
+    }
+
+    const ul = document.createElement("ul");
+    data.links.forEach(item=>{
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = item.url; a.textContent = item.label; a.rel="noopener"; a.target="_blank";
+      li.appendChild(a); ul.appendChild(li);
+    });
+    const wrap = document.getElementById("downloads");
+    wrap.innerHTML = `<h2>Descargas para: <span class="badge">${data.product}</span></h2>`;
+    wrap.appendChild(ul);
+    wrap.insertAdjacentHTML("beforeend","<p class='notice'>Los enlaces caducan en 15 minutos. Si necesitas ayuda, contáctanos.</p>");
+  }catch(e){
+    console.error(e);
+    document.getElementById("downloads").innerHTML = "<div class='notice'>Error validando la compra.</div>";
+  }
+})();
+</script>
+</body>
+</html>

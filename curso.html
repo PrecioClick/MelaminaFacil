@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Curso Melamina Fácil</title>
+<link rel="stylesheet" href="style.css"/>
+
+<style>
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+.mobile-menu{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#fff;
+  z-index:2000;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.mobile-menu a{
+  font-size:20px;
+  margin:12px 0;
+}
+
+.mobile-menu .close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:26px;
+  cursor:pointer;
+}
+
+@media(max-width:768px){
+  .nav-links{
+    display:none;
+  }
+  .menu-toggle{
+    display:block;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav style="display:flex;justify-content:space-between;align-items:center;">
+      <div><strong>Melamina Fácil</strong></div>
+      <div class="menu-toggle" onclick="abrirMenu()">☰</div>
+
+      <div class="nav-links">
+        <a href="curso.html">Curso</a>
+        <a href="cortes.html">Tipos de corte</a>
+        <a href="herramientas.html">Herramientas</a>
+        <a href="disenos.html">Diseños premium</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <span class="close" onclick="cerrarMenu()">✕</span>
+  <a href="curso.html">Curso</a>
+  <a href="cortes.html">Tipos de corte</a>
+  <a href="herramientas.html">Herramientas</a>
+  <a href="disenos.html">Diseños premium</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+</div>
+
+<main>
+  <section class="section">
+    <div class="container">
+
+      <h1 style="text-align:center">Curso Completo de Melamina</h1>
+      <p style="text-align:center">De nivel cero a profesional</p>
+
+      <section class="card">
+        <h2>Módulo 1: ¿Qué es la melamina?</h2>
+        <iframe width="100%" height="260"
+          src="https://www.youtube.com/embed/VczR8yjkD2o"
+          allowfullscreen></iframe>
+
+        <ul class="lista-videos">
+          <li onclick="abrirVideo('VIDEO_ID_1')">Tipos de melamina (Normal y RH)</li>
+          <li onclick="abrirVideo('VIDEO_ID_2')">Cuándo usar melamina normal y RH</li>
+          <li onclick="abrirVideo('VIDEO_ID_3')">Qué es MDF y cuándo usarlo</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Módulo 2: Herramientas básicas</h2>
+        <iframe width="100%" height="260"
+          src="https://www.youtube.com/embed/rDNnY0H1TA0"
+          allowfullscreen></iframe>
+
+        <ul class="lista-videos">
+          <li onclick="abrirVideo('VIDEO_ID_4')">Herramientas mínimas</li>
+          <li onclick="abrirVideo('VIDEO_ID_5')">Herramientas profesionales</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Módulo 3: Instalación de herrajes</h2>
+        <ul class="lista-videos">
+          <li onclick="abrirVideo('VIDEO_ID_6')">Instalar bisagras</li>
+          <li onclick="abrirVideo('VIDEO_ID_7')">Instalar pistones</li>
+          <li onclick="abrirVideo('VIDEO_ID_8')">Bisagras cazoleta</li>
+          <li onclick="abrirVideo('VIDEO_ID_9')">Perfiles de aluminio</li>
+          <li onclick="abrirVideo('VIDEO_ID_10')">Puertas corredizas</li>
+          <li onclick="abrirVideo('VIDEO_ID_11')">Sistema LED</li>
+          <li onclick="abrirVideo('VIDEO_ID_12')">Sistema Minifix</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Módulo 4: Diseño 3D en SketchUp</h2>
+        <ul class="lista-videos">
+          <li onclick="abrirVideo('VIDEO_ID_13')">Introducción a SketchUp</li>
+          <li onclick="abrirVideo('VIDEO_ID_14')">Uso básico</li>
+          <li onclick="abrirVideo('VIDEO_ID_15')">Crear un mueble</li>
+          <li onclick="abrirVideo('VIDEO_ID_16')">Texturas</li>
+          <li onclick="abrirVideo('VIDEO_ID_17')">Medidas para cajones</li>
+          <li onclick="abrirVideo('VIDEO_ID_18')">Medidas para puertas</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Módulo 5: Despiece de muebles</h2>
+        <ul class="lista-videos">
+          <li onclick="abrirVideo('VIDEO_ID_19')">Qué es el despiece</li>
+          <li onclick="abrirVideo('VIDEO_ID_20')">Optimizador Cutting</li>
+          <li onclick="abrirVideo('VIDEO_ID_21')">Uso del optimizador</li>
+          <li onclick="abrirVideo('VIDEO_ID_22')">Despiece en Excel</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Módulo 6: Mis primeros proyectos</h2>
+        <ul class="lista-videos">
+          <li onclick="abrirVideo('VIDEO_ID_23')">Diseño de closet</li>
+          <li onclick="abrirVideo('VIDEO_ID_24')">Zapatero con espejo</li>
+          <li onclick="abrirVideo('VIDEO_ID_25')">Cocina</li>
+          <li onclick="abrirVideo('VIDEO_ID_26')">Sala de entretenimiento</li>
+          <li onclick="abrirVideo('VIDEO_ID_27')">Puertas corredizas</li>
+        </ul>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<!-- MODAL VIDEO -->
+<div id="videoModal" style="display:none;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999">
+  <div class="video-box" style="background:#000;padding:10px;max-width:900px;width:90%;position:relative">
+    <span onclick="cerrarVideo()" style="position:absolute;top:-30px;right:0;color:#fff;font-size:24px;cursor:pointer">✕</span>
+    <iframe id="videoFrame" width="100%" height="400" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script src="main.js"></script>
+
+<script>
+if (!localStorage.getItem("acceso")) {
+  window.location.href = "index.html";
+}
+
+/* MENU MOVIL */
+function abrirMenu(){
+  document.getElementById("mobileMenu").style.display = "flex";
+}
+
+function cerrarMenu(){
+  document.getElementById("mobileMenu").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+

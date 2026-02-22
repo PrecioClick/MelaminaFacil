@@ -7,6 +7,37 @@
 <link rel="stylesheet" href="style.css"/>
 
 <style>
+
+/* ====== CONTENEDOR GENERAL PARA MÁRGENES ====== */
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+/* ====== SECCIONES ====== */
+.section{
+  padding:40px 0;
+}
+
+.card{
+  background:#fff;
+  padding:20px;
+  margin:30px 0;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.lista-videos li{
+  cursor:pointer;
+  margin:8px 0;
+}
+
+.lista-videos li:hover{
+  color:#0077ff;
+}
+
+/* ====== MENÚ MÓVIL ====== */
 .menu-toggle{
   display:none;
   font-size:26px;
@@ -48,6 +79,7 @@
     display:block;
   }
 }
+
 </style>
 </head>
 
@@ -88,74 +120,32 @@
       <h1 style="text-align:center">Curso Completo de Melamina</h1>
       <p style="text-align:center">De nivel cero a profesional</p>
 
+      <!-- MODULO 1 -->
       <section class="card">
         <h2>Módulo 1: ¿Qué es la melamina?</h2>
         <iframe width="100%" height="260"
-          src="https://www.youtube.com/embed/VczR8yjkD2o"
+          src="https://www.youtube.com/embed/F6EODXUzzR8"
           allowfullscreen></iframe>
 
         <ul class="lista-videos">
-          <li onclick="abrirVideo('VIDEO_ID_1')">Tipos de melamina (Normal y RH)</li>
-          <li onclick="abrirVideo('VIDEO_ID_2')">Cuándo usar melamina normal y RH</li>
-          <li onclick="abrirVideo('VIDEO_ID_3')">Qué es MDF y cuándo usarlo</li>
+          <li onclick="abrirVideo('https://www.youtube.com/embed/9yX-9hFPXjw?start=8')">Espesores de la Melamina</li>
+          <li onclick="abrirVideo('https://www.youtube.com/embed/ZsmwuD1T3Ok')">Dimensiones de la Melamina</li>
+          <li onclick="abrirVideo('https://www.youtube.com/embed/6XSmzHQ0szs')">Melamina Estandar</li>
+          <li onclick="abrirVideo('https://www.youtube.com/embed/s_370Gm4qls')">Melamina RH</li>
+          <li onclick="abrirVideo('https://www.youtube.com/embed/F6EODXUzzR8')">Tapacantos</li>
         </ul>
       </section>
 
+      <!-- MODULO 2 -->
       <section class="card">
-        <h2>Módulo 2: Herramientas básicas</h2>
+        <h2>Módulo 2: Kit de Herramientas Básicas</h2>
         <iframe width="100%" height="260"
-          src="https://www.youtube.com/embed/rDNnY0H1TA0"
+          src="https://drive.google.com/file/d/1qVWbOdp0VCvhIfRwxtvyTFaxt899DDxq/preview"
           allowfullscreen></iframe>
 
         <ul class="lista-videos">
-          <li onclick="abrirVideo('VIDEO_ID_4')">Herramientas mínimas</li>
-          <li onclick="abrirVideo('VIDEO_ID_5')">Herramientas profesionales</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>Módulo 3: Instalación de herrajes</h2>
-        <ul class="lista-videos">
-          <li onclick="abrirVideo('VIDEO_ID_6')">Instalar bisagras</li>
-          <li onclick="abrirVideo('VIDEO_ID_7')">Instalar pistones</li>
-          <li onclick="abrirVideo('VIDEO_ID_8')">Bisagras cazoleta</li>
-          <li onclick="abrirVideo('VIDEO_ID_9')">Perfiles de aluminio</li>
-          <li onclick="abrirVideo('VIDEO_ID_10')">Puertas corredizas</li>
-          <li onclick="abrirVideo('VIDEO_ID_11')">Sistema LED</li>
-          <li onclick="abrirVideo('VIDEO_ID_12')">Sistema Minifix</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>Módulo 4: Diseño 3D en SketchUp</h2>
-        <ul class="lista-videos">
-          <li onclick="abrirVideo('VIDEO_ID_13')">Introducción a SketchUp</li>
-          <li onclick="abrirVideo('VIDEO_ID_14')">Uso básico</li>
-          <li onclick="abrirVideo('VIDEO_ID_15')">Crear un mueble</li>
-          <li onclick="abrirVideo('VIDEO_ID_16')">Texturas</li>
-          <li onclick="abrirVideo('VIDEO_ID_17')">Medidas para cajones</li>
-          <li onclick="abrirVideo('VIDEO_ID_18')">Medidas para puertas</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>Módulo 5: Despiece de muebles</h2>
-        <ul class="lista-videos">
-          <li onclick="abrirVideo('VIDEO_ID_19')">Qué es el despiece</li>
-          <li onclick="abrirVideo('VIDEO_ID_20')">Optimizador Cutting</li>
-          <li onclick="abrirVideo('VIDEO_ID_21')">Uso del optimizador</li>
-          <li onclick="abrirVideo('VIDEO_ID_22')">Despiece en Excel</li>
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2>Módulo 6: Mis primeros proyectos</h2>
-        <ul class="lista-videos">
-          <li onclick="abrirVideo('VIDEO_ID_23')">Diseño de closet</li>
-          <li onclick="abrirVideo('VIDEO_ID_24')">Zapatero con espejo</li>
-          <li onclick="abrirVideo('VIDEO_ID_25')">Cocina</li>
-          <li onclick="abrirVideo('VIDEO_ID_26')">Sala de entretenimiento</li>
-          <li onclick="abrirVideo('VIDEO_ID_27')">Puertas corredizas</li>
+          <li onclick="abrirVideo('https://drive.google.com/file/d/1MW9ZJnQkZnzuq_LZrm2T8IWYa7a8MFjp/preview')">Kit de Herramientas Intermedias</li>
+          <li onclick="abrirVideo('https://drive.google.com/file/d/16BlZ5EBTDjbefaCCx24_hDluBbOwuJeA/preview')">Kit de Herramientas Profesionales</li>
         </ul>
       </section>
 
@@ -165,15 +155,18 @@
 
 <!-- MODAL VIDEO -->
 <div id="videoModal" style="display:none;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999">
-  <div class="video-box" style="background:#000;padding:10px;max-width:900px;width:90%;position:relative">
-    <span onclick="cerrarVideo()" style="position:absolute;top:-30px;right:0;color:#fff;font-size:24px;cursor:pointer">✕</span>
+  <div style="background:#000;padding:10px;max-width:900px;width:90%;position:relative;border-radius:10px;">
+    <span onclick="cerrarVideo()" 
+      style="position:absolute;top:-35px;right:0;color:#fff;font-size:28px;cursor:pointer;">
+      ✕
+    </span>
     <iframe id="videoFrame" width="100%" height="400" allowfullscreen></iframe>
   </div>
 </div>
 
-<script src="main.js"></script>
-
 <script>
+
+/* PROTECCION */
 if (!localStorage.getItem("acceso")) {
   window.location.href = "index.html";
 }
@@ -186,8 +179,26 @@ function abrirMenu(){
 function cerrarMenu(){
   document.getElementById("mobileMenu").style.display = "none";
 }
+
+/* MODAL VIDEO */
+function abrirVideo(url){
+  document.getElementById("videoFrame").src = url;
+  document.getElementById("videoModal").style.display = "flex";
+}
+
+function cerrarVideo(){
+  document.getElementById("videoFrame").src = "";
+  document.getElementById("videoModal").style.display = "none";
+}
+
+/* CERRAR HACIENDO CLICK FUERA */
+document.getElementById("videoModal").addEventListener("click", function(e){
+  if(e.target === this){
+    cerrarVideo();
+  }
+});
+
 </script>
 
 </body>
 </html>
-

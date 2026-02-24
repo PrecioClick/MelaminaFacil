@@ -56,16 +56,23 @@
 <header>
   <div class="container">
     <nav style="display:flex;justify-content:space-between;align-items:center;">
-      <div><strong>Melamina Fácil</strong></div>
+      
+      <!-- LOGO AGREGADO -->
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1771916205/Whisk_23e6fbca165eba298754e99733b75cfadr_gnn2t2.png" 
+             style="height:48px;">
+        <strong>Melamina Fácil</strong>
+      </div>
+
       <div class="menu-toggle" onclick="abrirMenu()">☰</div>
 
       <div class="nav-links">
         <a href="curso.html">Curso</a>
-        <a href="cortes.html">Tipos de corte</a>
+        <a href="cortes.html">Tipos de Corte</a>
         <a href="herramientas.html">Herramientas</a>
-        <a href="disenos.html">Diseños premium</a>
+        <a href="disenos.html">Diseños Premium</a>
         <a href="contacto.html">Contacto</a>
-        <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+        <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
       </div>
     </nav>
   </div>
@@ -74,11 +81,11 @@
 <div class="mobile-menu" id="mobileMenu">
   <span class="close" onclick="cerrarMenu()">✕</span>
   <a href="curso.html">Curso</a>
-  <a href="cortes.html">Tipos de corte</a>
+  <a href="cortes.html">Tipos de Corte</a>
   <a href="herramientas.html">Herramientas</a>
-  <a href="disenos.html">Diseños premium</a>
+  <a href="disenos.html">Diseños Premium</a>
   <a href="contacto.html">Contacto</a>
-  <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+  <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
 </div>
 
 <main>
@@ -88,14 +95,15 @@
 <h1 style="text-align:center">Curso Completo de Melamina</h1>
 <p style="text-align:center">De nivel cero a profesional</p>
 
+<!-- ===================== -->
 <!-- MODULO 1 -->
 <section class="card">
 <h2>Módulo 1: ¿Qué es la melamina?</h2>
 
-<iframe width="100%" height="260"
-src="https://www.youtube.com/embed/F6EODXUzzR8"
+  <iframe width="100%" height="260"
+src="https://www.youtube.com/embed/0lZaj1pyqpA"
 allowfullscreen></iframe>
-
+  
 <ul class="lista-videos">
 <li onclick="abrirVideo('https://www.youtube.com/embed/9yX-9hFPXjw?start=8')">Espesores de la Melamina</li>
 <li onclick="abrirVideo('https://www.youtube.com/embed/ZsmwuD1T3Ok')">Dimensiones de la Melamina</li>
@@ -109,10 +117,10 @@ allowfullscreen></iframe>
 <section class="card">
 <h2>Módulo 2: Kit de Herramientas Basicas</h2>
 
-<iframe width="100%" height="260"
+  <iframe width="100%" height="260"
 src="https://www.youtube.com/embed/MpCRJ1qAKzA"
 allowfullscreen></iframe>
-
+  
 <ul class="lista-videos">
 <li onclick="abrirVideo('https://www.youtube.com/embed/3Dpmgn9cCiA')">Kit de Herramientas Intermedias</li>
 <li onclick="abrirVideo('https://www.youtube.com/embed/MpCRJ1qAKzA')">Kit de Herramientas Profesionales</li>
@@ -123,67 +131,96 @@ allowfullscreen></iframe>
 <section class="card">
 <h2>Módulo 3: Que es SketchUp</h2>
 
-<iframe width="100%" height="260"
+  <iframe width="100%" height="260"
 src="https://www.youtube.com/embed/vORIkQl2PGE"
 allowfullscreen></iframe>
   
 <ul class="lista-videos">
-<li onclick="abrirVideo('https://www.youtube.com/embed/Uah1w8ndNHg')">Instalacion de SketchUp</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/TfwU2HD3H4k')">Instalacion de SketchUp</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/b5YKBGT2g6w')">Instalador de SketchUp para Computadoras de 32 Bits</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/jeX6ukDTkIs')">Como Solucionar el Error Extensiones de Warehouse</li>
 <li onclick="abrirVideo('https://www.youtube.com/embed/jwQPMo9XAIo')">Herramientas Basicas y Grupos - Parte 1</li>
 <li onclick="abrirVideo('https://www.youtube.com/embed/6CS3oB6VX5Y')">Herramientas Basicas y Grupos - Parte 2</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/VNY1TqDhQEE')">Mi Primer Muebles en SketchUp</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/zQt-l6BaTN0')">Colores y Texturas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/VNY1TqDhQEE')">Mi Primer Muebles en SketchUp - Parte 1</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/nPB-SwUfu4M')">Mi Primer Muebles en SketchUp - Parte 2</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/zQt-l6BaTN0')">Como Ingresar Colores y Texturas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/QHDEiTEC1dY&t=460s')">Como Ingresar Colores y Texturas</li>
 <li onclick="abrirVideo('https://www.youtube.com/embed/qa44hz9QuXQ')">Cambiar Posiciones de las texturas</li>  
-<li onclick="abrirVideo('https://www.youtube.com/embed/AGykH7cIPHw')">Medidas para cajones</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/b_phQWQEA7U')">Medidas para puertas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/AGykH7cIPHw')">Medidas Para Cajones</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/b_phQWQEA7U')">Medidas Para Puertas</li>
 </ul>
 </section>
 
 <!-- MODULO 4 -->
 <section class="card">
-<h2>Módulo 4: Despiece de muebles</h2>
+<h2>Módulo 4: Despiece de Muebles</h2>
+
+  <iframe width="100%" height="260"
+src="https://www.youtube.com/embed/_E4jpQ2LAh1g&t=3901s"
+allowfullscreen></iframe>
+  
 <ul class="lista-videos">
-<li onclick="abrirVideo('VIDEO_ID_19')">Qué es el despiece</li>
-<li onclick="abrirVideo('VIDEO_ID_20')">Optimizador Cutting</li>
-<li onclick="abrirVideo('VIDEO_ID_21')">Uso del optimizador</li>
-<li onclick="abrirVideo('VIDEO_ID_22')">Despiece en Excel</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/_m2IxAicExE')">Qué es el despiece</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/WpnyGC330sk')">Como Llenar una Hoja de Despiece</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/N9bquehO4EE')">Aprende a Especificar las Vetas, el Canteado, las Perforaciones y Ranuras</li>
 </ul>
 </section>
 
 <!-- MODULO 5 -->
 <section class="card">
-<h2>Módulo 5: Mis primeros proyectos</h2>
+<h2>Módulo 5: Programas de Optimizacion de Melamina</h2>
 
-<iframe width="100%" height="260"
-src="https://www.youtube.com/embed/o_FyxbjYIa4"
-allowfullscreen></iframe>  
+  <iframe width="100%" height="260"
+src="https://www.youtube.com/embed/o4L-YVR8ry0"
+allowfullscreen></iframe>
   
 <ul class="lista-videos">
-<li onclick="abrirVideo('https://www.youtube.com/embed/o_FyxbjYIa4')">Diseño de closet</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/V_ktTzG1aHE')">Zapatero con espejo</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/8PYVGZ3jiWE')">Cocina</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/fomVsnHRbfw')">Sala de entretenimiento</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/l6l7IuRmVmk')">Puertas corredizas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/QiHI-yqq3Nk')">Instalar y Configurar el Optimizador SketchCut</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/cm0VDkF4lIs')">Instalar Cutting Optimization Pro</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/zSCWI3xOucQ')">Configurar Cutting Optimization Pro</li>
 </ul>
 </section>
 
-  <!-- MODULO 6 -->
+<!-- MODULO 6 -->
 <section class="card">
-<h2>Módulo 6: Instalación de herrajes</h2>
+<h2>Módulo 6: Mis Primeros Proyectos</h2>
 
 <iframe width="100%" height="260"
-src="https://www.youtube.com/embed/WvLQ1fTbsZQ"
-allowfullscreen></iframe> 
+src="https://www.youtube.com/embed/o_FyxbjYIa4"
+allowfullscreen></iframe>
   
 <ul class="lista-videos">
-<li onclick="abrirVideo('https://www.youtube.com/embed/WvLQ1fTbsZQ')">Instalar bisagras Cazoleta</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/fdjNETD4JNg')">Instalar pistones</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/o_FyxbjYIa4')">Diseño de Closet</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/V_ktTzG1aHE')">Zapatero con Espejo</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/8PYVGZ3jiWE')">Modulo de Cocina</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/fomVsnHRbfw')">Sala de Entretenimiento</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/l6l7IuRmVmk')">Puertas Corredizas</li>
+</ul>
+</section>
+
+<!-- MODULO 7 -->
+<section class="card">
+<h2>Módulo 7: Instalación de Herrajes</h2>
+
+  <iframe width="100%" height="260"
+src="https://www.youtube.com/embed/WvLQ1fTbsZQ"
+allowfullscreen></iframe>
+  
+<ul class="lista-videos">
+<li onclick="abrirVideo('https://www.youtube.com/embed/WvLQ1fTbsZQ')">Instalar Bisagras Cazoleta</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/jQ_t3VrPPTM')">Tornillos Para Melamina</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/fdjNETD4JNg')">Instalar Pistones</li>
 <li onclick="abrirVideo('https://www.youtube.com/embed/OX2yc_3USdY')">Instalacion de Correderas Telescopicas</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/Q1LPyTUtAVk')">Perfiles de aluminio</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/jAkF4T_XkoM')">Puertas corredizas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/Q1LPyTUtAVk')">Perfiles de Aluminio</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/jAkF4T_XkoM')">Puertas Corredizas</li>
 <li onclick="abrirVideo('https://www.youtube.com/embed/tzuS_ssQGFQ')">Sistema LED</li>
 <li onclick="abrirVideo('https://www.youtube.com/embed/35gyqaxtcVg')">Sistema Minifix</li>
 </ul>
+</section>
+
+<!-- MENSAJE FINAL AGREGADO -->
+<section class="card" style="text-align:center;background:#f8fbff;border:1px dashed #4EA3F2;">
+<h3>Los Instaladores y Demas Archivos, se encuentran en Diseños Premium</h3>
 </section>
 
 </div>
@@ -211,7 +248,6 @@ function cerrarMenu(){
   document.getElementById("mobileMenu").style.display = "none";
 }
 
-/* MODAL VIDEO */
 function abrirVideo(url){
   const modal = document.getElementById("videoModal");
   const frame = document.getElementById("videoFrame");

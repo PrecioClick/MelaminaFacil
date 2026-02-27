@@ -7,6 +7,31 @@
 <link rel="stylesheet" href="style.css"/>
 
 <style>
+
+/* HEADER LOGO */
+.logo-container{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-circle{
+  width:45px;
+  height:45px;
+  background:#000;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.logo-circle img{
+  width:80%;
+  height:auto;
+}
+
+/* MENU MOVIL */
 .menu-toggle{
   display:none;
   font-size:26px;
@@ -48,6 +73,7 @@
     display:block;
   }
 }
+
 </style>
 </head>
 
@@ -56,7 +82,14 @@
 <header>
   <div class="container">
     <nav style="display:flex;justify-content:space-between;align-items:center;">
-      <div><strong>Melamina Fácil</strong></div>
+      
+      <div class="logo-container">
+        <div class="logo-circle">
+          <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1771916205/Whisk_23e6fbca165eba298754e99733b75cfadr_gnn2t2.png" alt="Logo Melamina Fácil">
+        </div>
+        <strong style="font-size:18px;">Melamina Fácil</strong>
+      </div>
+
       <div class="menu-toggle" onclick="abrirMenu()">☰</div>
 
       <div class="nav-links">
@@ -82,71 +115,116 @@
 </div>
 
 <main>
-  <section class="section">
-    <div class="container">
+<section class="section">
+<div class="container">
 
-      <h1 style="text-align:center">Tipos de corte – Nivel práctico</h1>
-      <p style="text-align:center">
-        Cortes especiales y pedidos reales a melaminería profesional
-      </p>
+<h1 style="text-align:center">Tipos de corte – Nivel práctico</h1>
+<p style="text-align:center">
+Cortes especiales y pedidos reales a melaminería profesional
+</p>
 
-      <section class="card">
-        <h2>Cortes especiales</h2>
-        <ul class="lista-videos">
-          <li onclick="abrirVideo('VIDEO_ID_1')">Ranuras para sistema LED</li>
-          <li onclick="abrirVideo('VIDEO_ID_2')">Rebajes</li>
-          <li onclick="abrirVideo('VIDEO_ID_3')">Cortes para fondo ranurado</li>
-          <li onclick="abrirVideo('VIDEO_ID_4')">Cortes para bisagras especiales</li>
-          <li onclick="abrirVideo('VIDEO_ID_5')">Cortes para correderas</li>
-          <li onclick="abrirVideo('VIDEO_ID_6')">Cortes para perfiles de aluminio</li>
-          <li onclick="abrirVideo('VIDEO_ID_7')">Cortes en ángulo</li>
-        </ul>
-      </section>
+<!-- ========================= -->
+<!-- SECCIÓN 1 -->
+<!-- ========================= -->
+<section class="card">
+<h2>Cortes especiales</h2>
 
-      <section class="card">
-        <h2>Pedidos a melaminería</h2>
-        <ul class="lista-videos">
-          <li onclick="abrirVideo('VIDEO_ID_8')">Cómo pedir estos cortes</li>
-          <li onclick="abrirVideo('VIDEO_ID_9')">Qué medidas dar exactamente</li>
-          <li onclick="abrirVideo('VIDEO_ID_10')">Errores comunes que debes evitar</li>
-        </ul>
-      </section>
+<iframe 
+id="player1"
+width="100%" 
+height="260"
+src="https://www.youtube.com/embed/LKmpQR6uyy0?enablejsapi=1"
+allow="autoplay"
+allowfullscreen>
+</iframe>
 
-      <section class="card">
-        <h2>Resultado final</h2>
-        <p>
-          🧠 <strong>Ahora sabes exactamente qué pedir en la melaminería</strong>,  
-          sin improvisar, sin errores y sin perder dinero.
-        </p>
-      </section>
+<ul class="lista-videos">
+<li onclick="reproducir1()">Cortes Especiales</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/uyspwzC9p9c')">Ranura Para Jaladores de Perfil</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/U77OeyXErgY')">Ranura Para Luces Led - Sistema Dicroico</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/AYZkEULdOX8')">Corte Para Frentes De Cajon Sin Manijas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/knj7q5GyqWQ')">Tirador Oculto Para Cajones - Corte 45°</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/O2WpxkACZPI')">Cortes especiales en SketchUP</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/b78konuTJzM')">Cortes especiales en SketchUP - Cajones</li>
+</ul>
+</section>
 
-    </div>
-  </section>
+<!-- ========================= -->
+<!-- SECCIÓN 2 -->
+<!-- ========================= -->
+<section class="card">
+<h2>Pedidos a melaminería</h2>
+
+<iframe 
+id="player2"
+width="100%" 
+height="260"
+src="https://www.youtube.com/embed/LKmpQR6uyy0?enablejsapi=1"
+allow="autoplay"
+allowfullscreen>
+</iframe>
+
+<ul class="lista-videos">
+<li onclick="reproducir2()">Como Solicitar Tus Cortes de Melamina</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/3pbnuyfDAIo')">Como Solicitar Cortes Especiales</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/C_RGXuiw160')">3 Errores que debes evitar en Melamina</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>Resultado final</h2>
+<p>
+🧠 <strong>Ahora sabes exactamente qué pedir en la melaminería</strong>,
+sin improvisar, sin errores y sin perder dinero.
+</p>
+</section>
+
+</div>
+</section>
 </main>
 
 <!-- MODAL VIDEO -->
 <div id="videoModal" style="display:none;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999">
-  <div class="video-box" style="background:#000;padding:10px;max-width:900px;width:90%;position:relative">
-    <span onclick="cerrarVideo()" style="position:absolute;top:-30px;right:0;color:#fff;font-size:24px;cursor:pointer">✕</span>
-    <iframe id="videoFrame" width="100%" height="400" allowfullscreen></iframe>
-  </div>
+<div class="video-box" style="background:#000;padding:10px;max-width:900px;width:90%;position:relative">
+<span onclick="cerrarVideo()" style="position:absolute;top:-30px;right:0;color:#fff;font-size:24px;cursor:pointer">✕</span>
+<iframe id="videoFrame" width="100%" height="400" allowfullscreen></iframe>
+</div>
 </div>
 
 <script src="main.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
+
 if (!localStorage.getItem("acceso")) {
-  window.location.href = "index.html";
+window.location.href = "index.html";
 }
 
 /* MENU MOVIL */
 function abrirMenu(){
-  document.getElementById("mobileMenu").style.display = "flex";
+document.getElementById("mobileMenu").style.display = "flex";
+}
+function cerrarMenu(){
+document.getElementById("mobileMenu").style.display = "none";
 }
 
-function cerrarMenu(){
-  document.getElementById("mobileMenu").style.display = "none";
+/* YOUTUBE API */
+let player1;
+let player2;
+
+function onYouTubeIframeAPIReady() {
+player1 = new YT.Player('player1');
+player2 = new YT.Player('player2');
 }
+
+function reproducir1(){
+if(player1){ player1.playVideo(); }
+}
+
+function reproducir2(){
+if(player2){ player2.playVideo(); }
+}
+
 </script>
 
 </body>

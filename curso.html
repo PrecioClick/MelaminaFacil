@@ -10,6 +10,7 @@
 /* GENERAL */
 body{
 margin:0;
+padding-top:110px; /* 👈 ESTA ES LA LÍNEA NUEVA */
 font-family:Arial, Helvetica, sans-serif;
 background:#f5f5f5;
 }
@@ -34,9 +35,13 @@ box-shadow:0 4px 10px rgba(0,0,0,.05);
 
 /* HEADER */
 header{
-background:#81D8D0;
-padding:15px 0;
-position:relative;
+background: #81D8D0;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .logo-container{
@@ -216,7 +221,7 @@ allow="autoplay" allowfullscreen></iframe>
 
 <!-- MÓDULO 3 -->
 <section class="card">
-<h2>Módulo 3: Que es SketchUp</h2>
+<h2>Módulo 3:SketchUp</h2>
 <iframe id="iframe3" width="100%" height="260"
 src="https://www.youtube.com/embed/vORIkQl2PGE?enablejsapi=1"
 allow="autoplay" allowfullscreen></iframe>
@@ -240,7 +245,7 @@ allow="autoplay" allowfullscreen></iframe>
 <section class="card">
 <h2>Módulo 4: Despiece de Muebles</h2>
 <iframe id="iframe4" width="100%" height="260"
-src="https://www.youtube.com/embed/_E4jpQ2LAh1g?enablejsapi=1"
+src="https://www.youtube.com/embed/bos-UBp_5Ks?enablejsapi=1"
 allow="autoplay" allowfullscreen></iframe>
 <ul class="lista-videos">
 <li onclick="playPrincipal(4,this)">Qué es el despiece</li>

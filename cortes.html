@@ -44,53 +44,63 @@ height:45px;
 width:auto;
 }
 
-/* MENU */
+/* HEADER COLOR */
 header{
-background:#fff;
+background:#81D8D0;
 border-bottom:1px solid #eee;
 padding:15px 0;
+position:relative;
 }
 
+/* MENU NORMAL */
 .nav-links a{
 margin-left:15px;
 text-decoration:none;
-color:#333;
+color:#000;
 font-size:14px;
 }
 
+/* HAMBURGUESA */
 .menu-toggle{
 display:none;
 font-size:26px;
 cursor:pointer;
-}
-
-.mobile-menu{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#fff;
-z-index:2000;
-display:none;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-}
-
-.mobile-menu a{
-font-size:20px;
-margin:12px 0;
-text-decoration:none;
 color:#000;
 }
 
-.mobile-menu .close{
+/* NUEVO MENU TARJETA */
+.mobile-menu{
 position:absolute;
-top:20px;
+top:70px;
 right:20px;
-font-size:26px;
-cursor:pointer;
+width:260px;
+background:#fff;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,.15);
+display:none;
+flex-direction:column;
+padding:15px;
+z-index:3000;
+}
+
+.mobile-menu a{
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px;
+text-decoration:none;
+color:#000;
+border-radius:8px;
+font-size:15px;
+}
+
+.mobile-menu a:hover{
+background:#f2f2f2;
+}
+
+.mobile-menu a.activo{
+background:#81D8D0;
+font-weight:bold;
 }
 
 @media(max-width:768px){
@@ -136,28 +146,30 @@ color:#fff;
 <strong style="font-size:18px;">Melamina Fácil</strong>
 </div>
 
-<div class="menu-toggle" onclick="abrirMenu()">☰</div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
 <div class="nav-links">
-<a href="#">Curso</a>
-<a href="#">Tipos de corte</a>
-<a href="#">Herramientas</a>
-<a href="#">Diseños premium</a>
-<a href="#">Contacto</a>
+<a href="curso.html">Curso</a>
+<a href="cortes.html">Tipos de corte</a>
+<a href="herramientas.html">Herramientas</a>
+<a href="disenos.html">Diseños premium</a>
+<a href="contacto.html">Contacto</a>
 </div>
 
 </nav>
 </div>
-</header>
 
+<!-- MENU TARJETA -->
 <div class="mobile-menu" id="mobileMenu">
-<span class="close" onclick="cerrarMenu()">✕</span>
-<a href="#">Curso</a>
-<a href="#">Tipos de corte</a>
-<a href="#">Herramientas</a>
-<a href="#">Diseños premium</a>
-<a href="#">Contacto</a>
+<a href="curso.html">📘 Curso</a>
+<a href="cortes.html" class="activo">🪚 Tipos De Corte</a>
+<a href="herramientas.html">🛠 Herramientas</a>
+<a href="disenos.html">📐 Diseños Premium</a>
+<a href="contacto.html">📱 Contacto</a>
+<a href="#" onclick="cerrarSesion()">❌ Cerrar Sesión</a>
 </div>
+
+</header>
 
 <main>
 <section class="section">
@@ -165,7 +177,6 @@ color:#fff;
 
 <h1 style="text-align:center">Tipos de corte – Nivel práctico</h1>
 
-<!-- SECCIÓN 1 -->
 <section class="card">
 <h2>Cortes especiales</h2>
 
@@ -176,14 +187,16 @@ allow="autoplay"
 allowfullscreen></iframe>
 
 <ul class="lista-videos">
-<li onclick="playPrincipal(1,this)">Cortes Especiales</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/uyspwzC9p9c?autoplay=1',this)">Ranura Para Jaladores</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/U77OeyXErgY?autoplay=1',this)">Ranura Led</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/AYZkEULdOX8?autoplay=1',this)">Frentes Sin Manija</li>
+<li onclick="playPrincipal(1,this)">▶ Cortes Especiales</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/uyspwzC9p9c?autoplay=1',this)">▶ Ranura Para Jaladores de Perfil</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/U77OeyXErgY?autoplay=1',this)">▶ Ranura Para Luces Led - Sistema Dicroico</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/AAYZkEULdOX8?autoplay=1',this)">▶ Corte Para Frentes De Cajon Sin Manijas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/knj7q5GyqWQ?autoplay=1',this)">▶ Tirador Oculto Para Cajones - Corte 45°</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/O2WpxkACZPI?autoplay=1',this)">▶ Cortes especiales en SketchUP</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/b78konuTJzM?autoplay=1',this)">▶ Cortes especiales en SketchUP - Cajones</li> 
 </ul>
 </section>
 
-<!-- SECCIÓN 2 -->
 <section class="card">
 <h2>Pedidos a melaminería</h2>
 
@@ -194,10 +207,18 @@ allow="autoplay"
 allowfullscreen></iframe>
 
 <ul class="lista-videos">
-<li onclick="playPrincipal(2,this)">Solicitar Cortes</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/3pbnuyfDAIo?autoplay=1',this)">Cortes Especiales</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/C_RGXuiw160?autoplay=1',this)">Errores en Melamina</li>
+<li onclick="playPrincipal(2,this)">▶ Solicitar Cortes De Melamina</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/3pbnuyfDAIo?autoplay=1',this)">▶ Como Solicitar Cortes Especiales</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/C_RGXuiw160?autoplay=1',this)">▶ 3 Errores que debes evitar en Melamina</li>
 </ul>
+</section>
+
+<!-- TEXTO FINAL -->
+<section class="card" style="text-align:center;">
+<p style="font-size:18px;">
+🧠 <strong>Ahora sabes exactamente qué pedir en la melamina,</strong><br>
+sin improvisar, sin errores y sin perder dinero.
+</p>
 </section>
 
 </div>
@@ -217,55 +238,37 @@ allowfullscreen></iframe>
 <script>
 
 let players = {};
-let activeItem = null;
 
 function onYouTubeIframeAPIReady(){
-players[1] = new YT.Player('iframe1',{
-events:{ 'onStateChange': e=>guardarTiempo(e,1) }
-});
-players[2] = new YT.Player('iframe2',{
-events:{ 'onStateChange': e=>guardarTiempo(e,2) }
-});
+players[1] = new YT.Player('iframe1',{events:{ 'onStateChange': e=>guardarTiempo(e,1) }});
+players[2] = new YT.Player('iframe2',{events:{ 'onStateChange': e=>guardarTiempo(e,2) }});
 }
 
-/* GUARDAR TIEMPO */
 function guardarTiempo(event,id){
 if(event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.PLAYING){
 localStorage.setItem("video"+id, event.target.getCurrentTime());
 }
 }
 
-/* RESTAURAR */
 function restaurarTiempo(id){
 let tiempo = localStorage.getItem("video"+id);
-if(tiempo){
-players[id].seekTo(parseFloat(tiempo),true);
-}
+if(tiempo){ players[id].seekTo(parseFloat(tiempo),true); }
 }
 
-/* PLAY PRINCIPAL */
 function playPrincipal(id,element){
 marcarActivo(element);
 players[id].playVideo();
 restaurarTiempo(id);
 }
 
-/* MARCAR ACTIVO */
 function marcarActivo(element){
-document.querySelectorAll(".lista-videos li").forEach(li=>{
-li.classList.remove("activo");
-});
+document.querySelectorAll(".lista-videos li").forEach(li=>li.classList.remove("activo"));
 element.classList.add("activo");
-activeItem = element;
 }
 
-/* MODAL */
 function abrirVideo(url,element){
-
 Object.values(players).forEach(p=>p.pauseVideo());
-
 marcarActivo(element);
-
 document.getElementById("videoModal").style.display="flex";
 document.getElementById("videoFrame").src=url+"&enablejsapi=1";
 }
@@ -275,12 +278,9 @@ document.getElementById("videoModal").style.display="none";
 document.getElementById("videoFrame").src="";
 }
 
-/* MENU */
-function abrirMenu(){
-document.getElementById("mobileMenu").style.display="flex";
-}
-function cerrarMenu(){
-document.getElementById("mobileMenu").style.display="none";
+function toggleMenu(){
+let menu=document.getElementById("mobileMenu");
+menu.style.display = menu.style.display==="flex" ? "none" : "flex";
 }
 
 </script>

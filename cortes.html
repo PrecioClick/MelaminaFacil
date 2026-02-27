@@ -4,74 +4,122 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Tipos de Corte – Melamina Fácil</title>
-<link rel="stylesheet" href="style.css"/>
 
 <style>
 
-/* HEADER LOGO */
+/* GENERAL */
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#f5f5f5;
+}
+
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+}
+
+.section{
+padding:40px 0;
+}
+
+.card{
+background:#fff;
+padding:20px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+
+/* LOGO */
 .logo-container{
-  display:flex;
-  align-items:center;
-  gap:10px;
+display:flex;
+align-items:center;
+gap:10px;
 }
 
-.logo-circle{
-  width:45px;
-  height:45px;
-  background:#000;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
+.logo-container img{
+height:45px;
+width:auto;
 }
 
-.logo-circle img{
-  width:80%;
-  height:auto;
+/* MENU */
+header{
+background:#fff;
+border-bottom:1px solid #eee;
+padding:15px 0;
 }
 
-/* MENU MOVIL */
+.nav-links a{
+margin-left:15px;
+text-decoration:none;
+color:#333;
+font-size:14px;
+}
+
 .menu-toggle{
-  display:none;
-  font-size:26px;
-  cursor:pointer;
+display:none;
+font-size:26px;
+cursor:pointer;
 }
 
 .mobile-menu{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:#fff;
-  z-index:2000;
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#fff;
+z-index:2000;
+display:none;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 }
 
 .mobile-menu a{
-  font-size:20px;
-  margin:12px 0;
+font-size:20px;
+margin:12px 0;
+text-decoration:none;
+color:#000;
 }
 
 .mobile-menu .close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:26px;
-  cursor:pointer;
+position:absolute;
+top:20px;
+right:20px;
+font-size:26px;
+cursor:pointer;
 }
 
 @media(max-width:768px){
-  .nav-links{
-    display:none;
-  }
-  .menu-toggle{
-    display:block;
-  }
+.nav-links{ display:none; }
+.menu-toggle{ display:block; }
+}
+
+/* LISTA VIDEOS */
+.lista-videos{
+list-style:none;
+padding:0;
+margin-top:15px;
+}
+
+.lista-videos li{
+cursor:pointer;
+padding:8px;
+border-radius:6px;
+transition:.3s;
+margin-bottom:5px;
+}
+
+.lista-videos li:hover{
+background:#eee;
+}
+
+.lista-videos li.activo{
+background:#111;
+color:#fff;
 }
 
 </style>
@@ -80,38 +128,35 @@
 <body>
 
 <header>
-  <div class="container">
-    <nav style="display:flex;justify-content:space-between;align-items:center;">
-      
-      <div class="logo-container">
-        <div class="logo-circle">
-          <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1771916205/Whisk_23e6fbca165eba298754e99733b75cfadr_gnn2t2.png" alt="Logo Melamina Fácil">
-        </div>
-        <strong style="font-size:18px;">Melamina Fácil</strong>
-      </div>
+<div class="container">
+<nav style="display:flex;justify-content:space-between;align-items:center;">
 
-      <div class="menu-toggle" onclick="abrirMenu()">☰</div>
+<div class="logo-container">
+<img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772156458/Whisk_2fa23fad8c88c7fa4394ad0bb933fe73dr_q06dxg.png">
+<strong style="font-size:18px;">Melamina Fácil</strong>
+</div>
 
-      <div class="nav-links">
-        <a href="curso.html">Curso</a>
-        <a href="cortes.html">Tipos de corte</a>
-        <a href="herramientas.html">Herramientas</a>
-        <a href="disenos.html">Diseños premium</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
-      </div>
-    </nav>
-  </div>
+<div class="menu-toggle" onclick="abrirMenu()">☰</div>
+
+<div class="nav-links">
+<a href="#">Curso</a>
+<a href="#">Tipos de corte</a>
+<a href="#">Herramientas</a>
+<a href="#">Diseños premium</a>
+<a href="#">Contacto</a>
+</div>
+
+</nav>
+</div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <span class="close" onclick="cerrarMenu()">✕</span>
-  <a href="curso.html">Curso</a>
-  <a href="cortes.html">Tipos de corte</a>
-  <a href="herramientas.html">Herramientas</a>
-  <a href="disenos.html">Diseños premium</a>
-  <a href="contacto.html">Contacto</a>
-  <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+<span class="close" onclick="cerrarMenu()">✕</span>
+<a href="#">Curso</a>
+<a href="#">Tipos de corte</a>
+<a href="#">Herramientas</a>
+<a href="#">Diseños premium</a>
+<a href="#">Contacto</a>
 </div>
 
 <main>
@@ -119,110 +164,123 @@
 <div class="container">
 
 <h1 style="text-align:center">Tipos de corte – Nivel práctico</h1>
-<p style="text-align:center">
-Cortes especiales y pedidos reales a melaminería profesional
-</p>
 
-<!-- ========================= -->
 <!-- SECCIÓN 1 -->
-<!-- ========================= -->
 <section class="card">
 <h2>Cortes especiales</h2>
 
-<iframe 
-id="player1"
-width="100%" 
-height="260"
+<iframe id="iframe1"
+width="100%" height="260"
 src="https://www.youtube.com/embed/LKmpQR6uyy0?enablejsapi=1"
 allow="autoplay"
-allowfullscreen>
-</iframe>
+allowfullscreen></iframe>
 
 <ul class="lista-videos">
-<li onclick="reproducir1()">Cortes Especiales</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/uyspwzC9p9c')">Ranura Para Jaladores de Perfil</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/U77OeyXErgY')">Ranura Para Luces Led - Sistema Dicroico</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/AYZkEULdOX8')">Corte Para Frentes De Cajon Sin Manijas</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/knj7q5GyqWQ')">Tirador Oculto Para Cajones - Corte 45°</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/O2WpxkACZPI')">Cortes especiales en SketchUP</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/b78konuTJzM')">Cortes especiales en SketchUP - Cajones</li>
+<li onclick="playPrincipal(1,this)">Cortes Especiales</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/uyspwzC9p9c?autoplay=1',this)">Ranura Para Jaladores</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/U77OeyXErgY?autoplay=1',this)">Ranura Led</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/AYZkEULdOX8?autoplay=1',this)">Frentes Sin Manija</li>
 </ul>
 </section>
 
-<!-- ========================= -->
 <!-- SECCIÓN 2 -->
-<!-- ========================= -->
 <section class="card">
 <h2>Pedidos a melaminería</h2>
 
-<iframe 
-id="player2"
-width="100%" 
-height="260"
+<iframe id="iframe2"
+width="100%" height="260"
 src="https://www.youtube.com/embed/LKmpQR6uyy0?enablejsapi=1"
 allow="autoplay"
-allowfullscreen>
-</iframe>
+allowfullscreen></iframe>
 
 <ul class="lista-videos">
-<li onclick="reproducir2()">Como Solicitar Tus Cortes de Melamina</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/3pbnuyfDAIo')">Como Solicitar Cortes Especiales</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/C_RGXuiw160')">3 Errores que debes evitar en Melamina</li>
+<li onclick="playPrincipal(2,this)">Solicitar Cortes</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/3pbnuyfDAIo?autoplay=1',this)">Cortes Especiales</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/C_RGXuiw160?autoplay=1',this)">Errores en Melamina</li>
 </ul>
-</section>
-
-<section class="card">
-<h2>Resultado final</h2>
-<p>
-🧠 <strong>Ahora sabes exactamente qué pedir en la melaminería</strong>,
-sin improvisar, sin errores y sin perder dinero.
-</p>
 </section>
 
 </div>
 </section>
 </main>
 
-<!-- MODAL VIDEO -->
-<div id="videoModal" style="display:none;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999">
-<div class="video-box" style="background:#000;padding:10px;max-width:900px;width:90%;position:relative">
-<span onclick="cerrarVideo()" style="position:absolute;top:-30px;right:0;color:#fff;font-size:24px;cursor:pointer">✕</span>
-<iframe id="videoFrame" width="100%" height="400" allowfullscreen></iframe>
+<!-- MODAL -->
+<div id="videoModal" style="display:none;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;">
+<div style="background:#000;padding:10px;max-width:900px;width:90%;position:relative">
+<span onclick="cerrarVideo()" style="position:absolute;top:-35px;right:0;color:#fff;font-size:28px;cursor:pointer;">✕</span>
+<iframe id="videoFrame" width="100%" height="400" allow="autoplay" allowfullscreen></iframe>
 </div>
 </div>
 
-<script src="main.js"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
 
-if (!localStorage.getItem("acceso")) {
-window.location.href = "index.html";
+let players = {};
+let activeItem = null;
+
+function onYouTubeIframeAPIReady(){
+players[1] = new YT.Player('iframe1',{
+events:{ 'onStateChange': e=>guardarTiempo(e,1) }
+});
+players[2] = new YT.Player('iframe2',{
+events:{ 'onStateChange': e=>guardarTiempo(e,2) }
+});
 }
 
-/* MENU MOVIL */
+/* GUARDAR TIEMPO */
+function guardarTiempo(event,id){
+if(event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.PLAYING){
+localStorage.setItem("video"+id, event.target.getCurrentTime());
+}
+}
+
+/* RESTAURAR */
+function restaurarTiempo(id){
+let tiempo = localStorage.getItem("video"+id);
+if(tiempo){
+players[id].seekTo(parseFloat(tiempo),true);
+}
+}
+
+/* PLAY PRINCIPAL */
+function playPrincipal(id,element){
+marcarActivo(element);
+players[id].playVideo();
+restaurarTiempo(id);
+}
+
+/* MARCAR ACTIVO */
+function marcarActivo(element){
+document.querySelectorAll(".lista-videos li").forEach(li=>{
+li.classList.remove("activo");
+});
+element.classList.add("activo");
+activeItem = element;
+}
+
+/* MODAL */
+function abrirVideo(url,element){
+
+Object.values(players).forEach(p=>p.pauseVideo());
+
+marcarActivo(element);
+
+document.getElementById("videoModal").style.display="flex";
+document.getElementById("videoFrame").src=url+"&enablejsapi=1";
+}
+
+function cerrarVideo(){
+document.getElementById("videoModal").style.display="none";
+document.getElementById("videoFrame").src="";
+}
+
+/* MENU */
 function abrirMenu(){
-document.getElementById("mobileMenu").style.display = "flex";
+document.getElementById("mobileMenu").style.display="flex";
 }
 function cerrarMenu(){
-document.getElementById("mobileMenu").style.display = "none";
-}
-
-/* YOUTUBE API */
-let player1;
-let player2;
-
-function onYouTubeIframeAPIReady() {
-player1 = new YT.Player('player1');
-player2 = new YT.Player('player2');
-}
-
-function reproducir1(){
-if(player1){ player1.playVideo(); }
-}
-
-function reproducir2(){
-if(player2){ player2.playVideo(); }
+document.getElementById("mobileMenu").style.display="none";
 }
 
 </script>

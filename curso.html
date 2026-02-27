@@ -4,89 +4,179 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Curso Melamina Fácil</title>
-<link rel="stylesheet" href="style.css"/>
 
 <style>
-.menu-toggle{
-  display:none;
-  font-size:26px;
-  cursor:pointer;
+
+/* GENERAL */
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#f5f5f5;
 }
 
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+}
+
+.section{
+padding:40px 0;
+}
+
+.card{
+background:#fff;
+padding:20px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+
+/* HEADER */
+header{
+background:#81D8D0;
+padding:15px 0;
+position:relative;
+}
+
+.logo-container{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-container img{
+height:48px;
+width:auto;
+}
+
+.nav-links a{
+margin-left:15px;
+text-decoration:none;
+color:#000;
+font-size:14px;
+}
+
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+color:#000;
+}
+
+/* MENU TARJETA */
 .mobile-menu{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:#fff;
-  z-index:2000;
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+position:absolute;
+top:70px;
+right:20px;
+width:260px;
+background:#fff;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,.15);
+display:none;
+flex-direction:column;
+padding:15px;
+z-index:3000;
 }
 
 .mobile-menu a{
-  font-size:20px;
-  margin:12px 0;
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px;
+text-decoration:none;
+color:#000;
+border-radius:8px;
+font-size:15px;
 }
 
-.mobile-menu .close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:26px;
-  cursor:pointer;
+.mobile-menu a:hover{
+background:#f2f2f2;
+}
+
+.mobile-menu a.activo{
+background:#81D8D0;
+font-weight:bold;
 }
 
 @media(max-width:768px){
-  .nav-links{
-    display:none;
-  }
-  .menu-toggle{
-    display:block;
-  }
+.nav-links{ display:none; }
+.menu-toggle{ display:block; }
 }
+
+/* LISTA VIDEOS (alineación correcta en múltiples líneas) */
+.lista-videos{
+list-style:none;
+padding:0;
+margin-top:15px;
+}
+
+.lista-videos li{
+display:flex;
+align-items:flex-start;
+gap:10px;
+cursor:pointer;
+padding:8px;
+border-radius:6px;
+transition:.3s;
+margin-bottom:5px;
+line-height:1.4;
+}
+
+.lista-videos li::before{
+content:"▶";
+flex-shrink:0;
+width:18px;
+margin-top:3px;
+}
+
+.lista-videos li:hover{
+background:#eee;
+}
+
+.lista-videos li.activo{
+background:#111;
+color:#fff;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="container">
-    <nav style="display:flex;justify-content:space-between;align-items:center;">
-      
-      <!-- LOGO AGREGADO -->
-      <div style="display:flex;align-items:center;gap:10px;">
-        <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1771916205/Whisk_23e6fbca165eba298754e99733b75cfadr_gnn2t2.png" 
-             style="height:48px;">
-        <strong>Melamina Fácil</strong>
-      </div>
+<div class="container">
+<nav style="display:flex;justify-content:space-between;align-items:center;">
 
-      <div class="menu-toggle" onclick="abrirMenu()">☰</div>
+<div class="logo-container">
+<img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772170669/Whisk_64ff7a55c55a248a9dd4c314604cba6cdr_disia0.png">
+<strong style="font-size:18px;">Melamina Fácil</strong>
+</div>
 
-      <div class="nav-links">
-        <a href="curso.html">Curso</a>
-        <a href="cortes.html">Tipos de Corte</a>
-        <a href="herramientas.html">Herramientas</a>
-        <a href="disenos.html">Diseños Premium</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
-      </div>
-    </nav>
-  </div>
-</header>
+<div class="menu-toggle" onclick="toggleMenu(event)">☰</div>
+
+<div class="nav-links">
+<a href="curso.html" class="activo">Curso</a>
+<a href="cortes.html">Tipos de Corte</a>
+<a href="herramientas.html">Herramientas</a>
+<a href="disenos.html">Diseños Premium</a>
+<a href="contacto.html">Contacto</a>
+<a href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
+</div>
+
+</nav>
+</div>
 
 <div class="mobile-menu" id="mobileMenu">
-  <span class="close" onclick="cerrarMenu()">✕</span>
-  <a href="curso.html">Curso</a>
-  <a href="cortes.html">Tipos de Corte</a>
-  <a href="herramientas.html">Herramientas</a>
-  <a href="disenos.html">Diseños Premium</a>
-  <a href="contacto.html">Contacto</a>
-  <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
+<a href="curso.html" class="activo">📘 Curso</a>
+<a href="cortes.html">🪚 Tipos De Corte</a>
+<a href="herramientas.html">🛠 Herramientas</a>
+<a href="disenos.html">📐 Diseños Premium</a>
+<a href="contacto.html">📱 Contacto</a>
+<a href="#" onclick="cerrarSesion()">❌ Cerrar Sesión</a>
 </div>
+
+</header>
 
 <main>
 <section class="section">
@@ -95,178 +185,203 @@
 <h1 style="text-align:center">Curso Completo de Melamina</h1>
 <p style="text-align:center">De nivel cero a profesional</p>
 
-<!-- ===================== -->
-<!-- MODULO 1 -->
+<!-- MÓDULO 1 -->
 <section class="card">
-<h2>Módulo 1: ¿Qué es la melamina?</h2>
-
-  <iframe width="100%" height="260"
-src="https://www.youtube.com/embed/0lZaj1pyqpA"
-allowfullscreen></iframe>
-  
+<h2>Módulo 1: Conceptos Basicos</h2>
+<iframe id="iframe1" width="100%" height="260"
+src="https://www.youtube.com/embed/0lZaj1pyqpA?enablejsapi=1"
+allow="autoplay" allowfullscreen></iframe>
 <ul class="lista-videos">
-<li onclick="abrirVideo('https://www.youtube.com/embed/9yX-9hFPXjw?start=8')">Espesores de la Melamina</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/ZsmwuD1T3Ok')">Dimensiones de la Melamina</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/6XSmzHQ0szs')">Melamina Estandar</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/s_370Gm4qls')">Melamina RH</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/F6EODXUzzR8')">Tapacantos</li>
+<li onclick="playPrincipal(1,this)">Qué es la melamina</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/9yX-9hFPXjw?autoplay=1',this)">Espesores de la Melamina</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/ZsmwuD1T3Ok?autoplay=1',this)">Dimensiones de la Melamina</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/6XSmzHQ0szs?autoplay=1',this)">Melamina Estandar</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/s_370Gm4qls?autoplay=1',this)">Melamina RH</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/F6EODXUzzR8?autoplay=1',this)">Tapacantos</li>
 </ul>
 </section>
 
-<!-- MODULO 2 -->
+<!-- MÓDULO 2 -->
 <section class="card">
-<h2>Módulo 2: Kit de Herramientas Basicas</h2>
-
-  <iframe width="100%" height="260"
-src="https://www.youtube.com/embed/MpCRJ1qAKzA"
-allowfullscreen></iframe>
-  
+<h2>Módulo 2: Kit de Herramientas</h2>
+<iframe id="iframe2" width="100%" height="260"
+src="https://www.youtube.com/embed/MpCRJ1qAKzA?enablejsapi=1"
+allow="autoplay" allowfullscreen></iframe>
 <ul class="lista-videos">
-<li onclick="abrirVideo('https://www.youtube.com/embed/3Dpmgn9cCiA')">Kit de Herramientas Intermedias</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/MpCRJ1qAKzA')">Kit de Herramientas Profesionales</li>
+<li onclick="playPrincipal(2,this)">Kit de Herramientas Basicas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/3Dpmgn9cCiA?autoplay=1',this)">Kit de Herramientas Intermedias</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/MpCRJ1qAKzA?autoplay=1',this)">Kit de Herramientas Profesionales</li>
 </ul>
 </section>
 
-<!-- MODULO 3 -->
+<!-- MÓDULO 3 -->
 <section class="card">
 <h2>Módulo 3: Que es SketchUp</h2>
-
-  <iframe width="100%" height="260"
-src="https://www.youtube.com/embed/vORIkQl2PGE"
-allowfullscreen></iframe>
-  
+<iframe id="iframe3" width="100%" height="260"
+src="https://www.youtube.com/embed/vORIkQl2PGE?enablejsapi=1"
+allow="autoplay" allowfullscreen></iframe>
 <ul class="lista-videos">
-<li onclick="abrirVideo('https://www.youtube.com/embed/TfwU2HD3H4k')">Instalacion de SketchUp</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/b5YKBGT2g6w')">Instalador de SketchUp para Computadoras de 32 Bits</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/jeX6ukDTkIs')">Como Solucionar el Error Extensiones de Warehouse</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/jwQPMo9XAIo')">Herramientas Basicas y Grupos - Parte 1</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/6CS3oB6VX5Y')">Herramientas Basicas y Grupos - Parte 2</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/VNY1TqDhQEE')">Mi Primer Muebles en SketchUp - Parte 1</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/nPB-SwUfu4M')">Mi Primer Muebles en SketchUp - Parte 2</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/zQt-l6BaTN0')">Como Ingresar Colores y Texturas</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/QHDEiTEC1dY&t=460s')">Como Ingresar Colores y Texturas</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/qa44hz9QuXQ')">Cambiar Posiciones de las texturas</li>  
-<li onclick="abrirVideo('https://www.youtube.com/embed/AGykH7cIPHw')">Medidas Para Cajones</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/b_phQWQEA7U')">Medidas Para Puertas</li>
+<li onclick="playPrincipal(3,this)">Que es SketchUp</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/TfwU2HD3H4k?autoplay=1',this)">Instalacion de SketchUp</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/b5YKBGT2g6w?autoplay=1',this)">Instalador 32 Bits</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/jeX6ukDTkIs?autoplay=1',this)">Error Extensiones Warehouse</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/jwQPMo9XAIo?autoplay=1',this)">Herramientas Basicas Parte 1</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/6CS3oB6VX5Y?autoplay=1',this)">Herramientas Basicas Parte 2</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/VNY1TqDhQEE?autoplay=1',this)">Mi Primer Mueble Parte 1</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/nPB-SwUfu4M?autoplay=1',this)">Mi Primer Mueble Parte 2</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/zQt-l6BaTN0?autoplay=1',this)">Colores y Texturas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/qa44hz9QuXQ?autoplay=1',this)">Posición de Texturas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/AGykH7cIPHw?autoplay=1',this)">Medidas Para Cajones</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/b_phQWQEA7U?autoplay=1',this)">Medidas Para Puertas</li>
 </ul>
 </section>
 
-<!-- MODULO 4 -->
+<!-- MÓDULO 4 -->
 <section class="card">
 <h2>Módulo 4: Despiece de Muebles</h2>
-
-  <iframe width="100%" height="260"
-src="https://www.youtube.com/embed/_E4jpQ2LAh1g&t=3901s"
-allowfullscreen></iframe>
-  
+<iframe id="iframe4" width="100%" height="260"
+src="https://www.youtube.com/embed/_E4jpQ2LAh1g?enablejsapi=1"
+allow="autoplay" allowfullscreen></iframe>
 <ul class="lista-videos">
-<li onclick="abrirVideo('https://www.youtube.com/embed/_m2IxAicExE')">Qué es el despiece</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/WpnyGC330sk')">Como Llenar una Hoja de Despiece</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/N9bquehO4EE')">Aprende a Especificar las Vetas, el Canteado, las Perforaciones y Ranuras</li>
+<li onclick="playPrincipal(4,this)">Qué es el despiece</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/_m2IxAicExE?autoplay=1',this)">Ejemplo de despiece</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/WpnyGC330sk?autoplay=1',this)">Hoja de Despiece</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/N9bquehO4EE?autoplay=1',this)">Vetas y Canteado</li>
 </ul>
 </section>
 
-<!-- MODULO 5 -->
+<!-- MÓDULO 5 -->
 <section class="card">
-<h2>Módulo 5: Programas de Optimizacion de Melamina</h2>
-
-  <iframe width="100%" height="260"
-src="https://www.youtube.com/embed/o4L-YVR8ry0"
-allowfullscreen></iframe>
-  
+<h2>Módulo 5: Optimizadores de Corte</h2>
+<iframe id="iframe5" width="100%" height="260"
+src="https://www.youtube.com/embed/o4L-YVR8ry0?enablejsapi=1"
+allow="autoplay" allowfullscreen></iframe>
 <ul class="lista-videos">
-<li onclick="abrirVideo('https://www.youtube.com/embed/QiHI-yqq3Nk')">Instalar y Configurar el Optimizador SketchCut</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/cm0VDkF4lIs')">Instalar Cutting Optimization Pro</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/zSCWI3xOucQ')">Configurar Cutting Optimization Pro</li>
+<li onclick="playPrincipal(5,this)">Que son los Optimizadores de Melamina</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/QiHI-yqq3Nk?autoplay=1',this)">Instalar SketchCut</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/cm0VDkF4lIs?autoplay=1',this)">Instalar Cutting Optimization Pro</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/zSCWI3xOucQ?autoplay=1',this)">Configurar Cutting Optimization Pro</li>
 </ul>
 </section>
 
-<!-- MODULO 6 -->
+<!-- MÓDULO 6 -->
 <section class="card">
 <h2>Módulo 6: Mis Primeros Proyectos</h2>
-
-<iframe width="100%" height="260"
-src="https://www.youtube.com/embed/o_FyxbjYIa4"
-allowfullscreen></iframe>
-  
+<iframe id="iframe6" width="100%" height="260"
+src="https://www.youtube.com/embed/o_FyxbjYIa4?enablejsapi=1"
+allow="autoplay" allowfullscreen></iframe>
 <ul class="lista-videos">
-<li onclick="abrirVideo('https://www.youtube.com/embed/o_FyxbjYIa4')">Diseño de Closet</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/V_ktTzG1aHE')">Zapatero con Espejo</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/8PYVGZ3jiWE')">Modulo de Cocina</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/fomVsnHRbfw')">Sala de Entretenimiento</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/l6l7IuRmVmk')">Puertas Corredizas</li>
+<li onclick="playPrincipal(6,this)">Diseño de Closet</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/V_ktTzG1aHE?autoplay=1',this)">Zapatero con Espejo</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/8PYVGZ3jiWE?autoplay=1',this)">Modulo de Cocina</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/fomVsnHRbfw?autoplay=1',this)">Sala de Entretenimiento</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/l6l7IuRmVmk?autoplay=1',this)">Puertas Corredizas</li>
 </ul>
 </section>
 
-<!-- MODULO 7 -->
+<!-- MÓDULO 7 -->
 <section class="card">
 <h2>Módulo 7: Instalación de Herrajes</h2>
-
-  <iframe width="100%" height="260"
-src="https://www.youtube.com/embed/WvLQ1fTbsZQ"
-allowfullscreen></iframe>
-  
+<iframe id="iframe7" width="100%" height="260"
+src="https://www.youtube.com/embed/qtJDYfSofSQ?enablejsapi=1"
+allow="autoplay" allowfullscreen></iframe>
 <ul class="lista-videos">
-<li onclick="abrirVideo('https://www.youtube.com/embed/WvLQ1fTbsZQ')">Instalar Bisagras Cazoleta</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/jQ_t3VrPPTM')">Tornillos Para Melamina</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/fdjNETD4JNg')">Instalar Pistones</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/OX2yc_3USdY')">Instalacion de Correderas Telescopicas</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/Q1LPyTUtAVk')">Perfiles de Aluminio</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/jAkF4T_XkoM')">Puertas Corredizas</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/tzuS_ssQGFQ')">Sistema LED</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/35gyqaxtcVg')">Sistema Minifix</li>
+<li onclick="playPrincipal(7,this)">Tornillos Para Melamina</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/WvLQ1fTbsZQ?autoplay=1',this)">Instalar Bisagras Cazoleta</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/fdjNETD4JNg?autoplay=1',this)">Instalar Pistones</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/OX2yc_3USdY?autoplay=1',this)">Correderas Telescopicas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/Q1LPyTUtAVk?autoplay=1',this)">Perfiles de Aluminio</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/jAkF4T_XkoM?autoplay=1',this)">Puertas Corredizas</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/tzuS_ssQGFQ?autoplay=1',this)">Sistema LED</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/35gyqaxtcVg?autoplay=1',this)">Sistema Minifix</li>
 </ul>
 </section>
 
-<!-- MENSAJE FINAL AGREGADO -->
+<!-- MENSAJE FINAL -->
 <section class="card" style="text-align:center;background:#f8fbff;border:1px dashed #4EA3F2;">
-<h3>Los Instaladores y Demas Archivos, se encuentran en Diseños Premium</h3>
+<h3>Los Instaladores y Demás Archivos, se encuentran en Diseños Premium</h3>
 </section>
 
 </div>
 </section>
 </main>
 
-<!-- MODAL VIDEO -->
-<div id="videoModal" style="display:none;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999">
-  <div style="background:#000;padding:10px;max-width:900px;width:90%;position:relative;border-radius:12px">
-    <span onclick="cerrarVideo()" style="position:absolute;top:-30px;right:0;color:#fff;font-size:26px;cursor:pointer;font-weight:bold">✕</span>
-    <iframe id="videoFrame" width="100%" height="400" allowfullscreen></iframe>
-  </div>
+<!-- MODAL -->
+<div id="videoModal" style="display:none;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;">
+<div style="background:#000;padding:10px;max-width:900px;width:90%;position:relative;border-radius:10px;">
+<span onclick="cerrarVideo()" style="position:absolute;top:-35px;right:0;color:#fff;font-size:30px;cursor:pointer;">✕</span>
+<iframe id="videoFrame" width="100%" height="400" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 </div>
 
+<script src="https://www.youtube.com/iframe_api"></script>
+
 <script>
+
+/* PROTECCIÓN DE ACCESO */
 if (!localStorage.getItem("acceso")) {
-  window.location.href = "index.html";
+window.location.href = "index.html";
 }
 
-function abrirMenu(){
-  document.getElementById("mobileMenu").style.display = "flex";
+let players = {};
+let menu = document.getElementById("mobileMenu");
+
+/* CARGA API YOUTUBE */
+function onYouTubeIframeAPIReady(){
+for(let i=1;i<=7;i++){
+players[i] = new YT.Player('iframe'+i);
+}
 }
 
-function cerrarMenu(){
-  document.getElementById("mobileMenu").style.display = "none";
+/* REPRODUCIR VIDEO PRINCIPAL */
+function playPrincipal(id,element){
+marcarActivo(element);
+players[id].playVideo();
 }
 
-function abrirVideo(url){
-  const modal = document.getElementById("videoModal");
-  const frame = document.getElementById("videoFrame");
-  frame.src = url;
-  modal.style.display = "flex";
+/* MARCAR ACTIVO */
+function marcarActivo(element){
+document.querySelectorAll(".lista-videos li").forEach(li=>li.classList.remove("activo"));
+element.classList.add("activo");
 }
 
+/* ABRIR VIDEO EN MODAL */
+function abrirVideo(url,element){
+Object.values(players).forEach(p=>p.pauseVideo());
+marcarActivo(element);
+let modal = document.getElementById("videoModal");
+let frame = document.getElementById("videoFrame");
+modal.style.display="flex";
+frame.src = url + "&enablejsapi=1";
+}
+
+/* CERRAR MODAL */
 function cerrarVideo(){
-  const modal = document.getElementById("videoModal");
-  const frame = document.getElementById("videoFrame");
-  frame.src = "";
-  modal.style.display = "none";
+document.getElementById("videoModal").style.display="none";
+document.getElementById("videoFrame").src="";
 }
 
-document.getElementById("videoModal").addEventListener("click", function(e){
-  if(e.target === this){
-    cerrarVideo();
-  }
+/* CLICK FUERA DEL VIDEO */
+document.getElementById("videoModal").addEventListener("click",function(e){
+if(e.target.id==="videoModal"){ cerrarVideo(); }
 });
+
+/* MENU */
+function toggleMenu(e){
+e.stopPropagation();
+menu.style.display = menu.style.display==="flex" ? "none" : "flex";
+}
+
+document.addEventListener("click",function(e){
+if(menu.style.display==="flex" && !menu.contains(e.target) && !e.target.classList.contains("menu-toggle")){
+menu.style.display="none";
+}
+});
+
+window.addEventListener("scroll",function(){
+if(menu.style.display==="flex"){ menu.style.display="none"; }
+});
+
 </script>
 
 </body>

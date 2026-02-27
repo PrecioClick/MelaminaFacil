@@ -4,152 +4,320 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Herramientas – Melamina Fácil</title>
-<link rel="stylesheet" href="style.css"/>
 
 <style>
-.menu-toggle{
-  display:none;
-  font-size:26px;
-  cursor:pointer;
+
+/* GENERAL */
+body{
+margin:0;
+padding-top:60px;
+font-family:Arial, Helvetica, sans-serif;
+background:#f5f5f5;
 }
 
+.container{
+width:90%;
+max-width:1100px;
+margin:0 auto;
+padding:0 20px;
+}
+
+.section{
+padding:40px 0;
+}
+
+.card{
+background:#fff;
+padding:20px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+
+/* LOGO */
+.logo-container{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-container img{
+height:45px;
+width:auto;
+}
+
+/* HEADER */
+header{
+background:#81D8D0;
+padding:15px 0;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+}
+
+/* MENU NORMAL */
+.nav-links a{
+margin-left:15px;
+text-decoration:none;
+color:#000;
+font-size:14px;
+}
+
+/* HAMBURGUESA */
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+color:#000;
+}
+
+/* MENU TARJETA */
 .mobile-menu{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:#fff;
-  z-index:2000;
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+position:absolute;
+top:70px;
+right:20px;
+width:260px;
+background:#fff;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,.15);
+display:none;
+flex-direction:column;
+padding:15px;
+z-index:3000;
 }
 
 .mobile-menu a{
-  font-size:20px;
-  margin:12px 0;
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px;
+text-decoration:none;
+color:#000;
+border-radius:8px;
+font-size:15px;
 }
 
-.mobile-menu .close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:26px;
-  cursor:pointer;
+.mobile-menu a:hover{
+background:#f2f2f2;
+}
+
+.mobile-menu a.activo{
+background:#81D8D0;
+font-weight:bold;
 }
 
 @media(max-width:768px){
-  .nav-links{
-    display:none;
-  }
-  .menu-toggle{
-    display:block;
-  }
+.nav-links{ display:none; }
+.menu-toggle{ display:block; }
 }
+
+/* LISTA VIDEOS */
+.lista-videos{
+list-style:none;
+padding:0;
+margin-top:15px;
+}
+
+.lista-videos li{
+display:flex;
+align-items:flex-start;
+gap:10px;
+cursor:pointer;
+padding:8px;
+border-radius:6px;
+transition:.3s;
+margin-bottom:5px;
+line-height:1.4;
+}
+
+.lista-videos li::before{
+content:"▶";
+flex-shrink:0;
+width:18px;
+margin-top:2px;
+}
+
+.lista-videos li:hover{
+background:#eee;
+}
+
+.lista-videos li.activo{
+background:#111;
+color:#fff;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="container">
-    <nav style="display:flex;justify-content:space-between;align-items:center;">
-      <div><strong>Melamina Fácil</strong></div>
-      <div class="menu-toggle" onclick="abrirMenu()">☰</div>
+<div class="container">
+<nav style="display:flex;justify-content:space-between;align-items:center;">
 
-      <div class="nav-links">
-        <a href="curso.html">Curso</a>
-        <a href="cortes.html">Tipos de corte</a>
-        <a href="herramientas.html">Herramientas</a>
-        <a href="disenos.html">Diseños premium</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
-      </div>
-    </nav>
-  </div>
-</header>
+<div class="logo-container">
+<img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772170669/Whisk_64ff7a55c55a248a9dd4c314604cba6cdr_disia0.png">
+<strong style="font-size:18px;">Melamina Fácil</strong>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu(event)">☰</div>
+
+<div class="nav-links">
+<a href="curso.html">Curso</a>
+<a href="cortes.html">Tipos de corte</a>
+<a href="herramientas.html" class="activo">Herramientas</a>
+<a href="disenos.html">Diseños premium</a>
+<a href="contacto.html">Contacto</a>
+<a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+</div>
+
+</nav>
+</div>
 
 <div class="mobile-menu" id="mobileMenu">
-  <span class="close" onclick="cerrarMenu()">✕</span>
-  <a href="curso.html">Curso</a>
-  <a href="cortes.html">Tipos de corte</a>
-  <a href="herramientas.html">Herramientas</a>
-  <a href="disenos.html">Diseños premium</a>
-  <a href="contacto.html">Contacto</a>
-  <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+<a href="curso.html">📘 Curso</a>
+<a href="cortes.html">🪚 Tipos De Corte</a>
+<a href="herramientas.html" class="activo">🛠 Herramientas</a>
+<a href="disenos.html">📐 Diseños Premium</a>
+<a href="contacto.html">📱 Contacto</a>
+<a href="#" onclick="cerrarSesion()">❌ Cerrar Sesión</a>
 </div>
+
+</header>
 
 <main>
-  <section class="section">
-    <div class="container">
+<section class="section">
+<div class="container">
 
-      <h1 style="text-align:center">Herramientas – Guía práctica</h1>
-      <p style="text-align:center">
-        Qué comprar, en qué orden y qué evitar
-      </p>
+<h1 style="text-align:center">Herramientas – Guía Práctica</h1>
+<p style="text-align:center">Qué comprar, en qué orden y qué evitar</p>
 
-      <section class="card">
-        <h2>Kits recomendados</h2>
-        <ul class="lista-videos">
-          <li onclick="abrirVideo('VIDEO_ID_1')">Kit mínimo recomendado (bajo presupuesto)</li>
-          <li onclick="abrirVideo('VIDEO_ID_2')">Kit intermedio</li>
-          <li onclick="abrirVideo('VIDEO_ID_3')">Kit profesional</li>
-        </ul>
-      </section>
+<!-- KITS -->
+<section class="card">
+<h2>Kits recomendados</h2>
 
-      <section class="card">
-        <h2>Decisiones inteligentes</h2>
-        <ul class="lista-videos">
-          <li onclick="abrirVideo('VIDEO_ID_4')">Herramientas opcionales</li>
-          <li onclick="abrirVideo('VIDEO_ID_5')">Qué herramienta NO comprar al inicio</li>
-          <li onclick="abrirVideo('VIDEO_ID_6')">Errores comunes al comprar herramientas</li>
-        </ul>
-      </section>
+<iframe id="iframe1" width="100%" height="260"
+src="https://www.youtube.com/embed/LKmpQR6uyy0?enablejsapi=1"
+allow="autoplay" allowfullscreen></iframe>
 
-      <section class="card">
-        <h2>Ahorro y mantenimiento</h2>
-        <ul class="lista-videos">
-          <li onclick="abrirVideo('VIDEO_ID_7')">Alternativas económicas</li>
-          <li onclick="abrirVideo('VIDEO_ID_8')">Mantenimiento básico</li>
-        </ul>
-      </section>
+<ul class="lista-videos">
+<li onclick="playPrincipal(1,this)">Herramientas Basicas Para Iniciar en Melamina</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/sow3UdO30bo?autoplay=1',this)">Guia Para Utilizar Taladros y Atornillador Inalambrico</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/ilhQEjRi7TU?autoplay=1',this)">Como Elegir un Taladro Inalámbrico</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/iEceForRqoo?autoplay=1',this)">Qué Taladro Debo Comprar - 18V vs 12V</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/bJAZFYA8j0w?autoplay=1',this)">Como Usar la Prensa Esquinera</li>
+</ul>
+</section>
 
-      <section class="card">
-        <p>
-          🧠 <strong>Resultado:</strong><br>
-          Sabes exactamente qué comprar, en qué orden y sin botar dinero.
-        </p>
-      </section>
+<!-- OPCIONALES -->
+<section class="card">
+<h2>Herramientas Opcionales</h2>
 
-    </div>
-  </section>
+<iframe id="iframe2" width="100%" height="260"
+src="https://www.youtube.com/embed/ik87_eIQ_fA?enablejsapi=1"
+allow="autoplay" allowfullscreen></iframe>
+
+<ul class="lista-videos">
+<li onclick="playPrincipal(2,this)">Herramientas Para Cortes Especiales</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/B7FjaPxS6Z8?autoplay=1',this)">Herramientas Opcionales que se Deben Comprar</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/3AFlNbvxPdI?autoplay=1',this)">Prensas Opcionales</li>
+</ul>
+</section>
+
+<!-- MANTENIMIENTO -->
+<section class="card">
+<h2>Mantenimiento</h2>
+
+<iframe id="iframe3" width="100%" height="260"
+src="https://www.youtube.com/embed/VQsLglDCp8Q?enablejsapi=1"
+allow="autoplay" allowfullscreen></iframe>
+
+<ul class="lista-videos">
+<li onclick="playPrincipal(3,this)">Como Limpiar Tus Herramientas</li>
+</ul>
+</section>
+
+<section class="card" style="text-align:center;">
+<p style="font-size:18px;">
+🧠 <strong>Resultado:</strong><br>
+Sabes exactamente qué comprar, en qué orden y sin botar dinero.
+</p>
+</section>
+
+</div>
+</section>
 </main>
 
-<!-- MODAL VIDEO -->
-<div id="videoModal" style="display:none;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:999">
-  <div class="video-box" style="background:#000;padding:10px;max-width:900px;width:90%;position:relative">
-    <span onclick="cerrarVideo()" style="position:absolute;top:-30px;right:0;color:#fff;font-size:24px;cursor:pointer">✕</span>
-    <iframe id="videoFrame" width="100%" height="400" allowfullscreen></iframe>
-  </div>
+<!-- MODAL -->
+<div id="videoModal" style="display:none;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;">
+<div style="background:#000;padding:10px;max-width:900px;width:90%;position:relative;border-radius:10px;">
+<span onclick="cerrarVideo()" style="position:absolute;top:-35px;right:0;color:#fff;font-size:30px;cursor:pointer;">✕</span>
+<iframe id="videoFrame" width="100%" height="400" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 </div>
 
-<script src="main.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <script>
+
 if (!localStorage.getItem("acceso")) {
-  window.location.href = "index.html";
+window.location.href="index.html";
 }
 
-/* MENU MOVIL */
-function abrirMenu(){
-  document.getElementById("mobileMenu").style.display = "flex";
+let players = {};
+let menu = document.getElementById("mobileMenu");
+
+function onYouTubeIframeAPIReady(){
+players[1]=new YT.Player('iframe1');
+players[2]=new YT.Player('iframe2');
+players[3]=new YT.Player('iframe3');
 }
 
-function cerrarMenu(){
-  document.getElementById("mobileMenu").style.display = "none";
+function playPrincipal(id,element){
+marcarActivo(element);
+players[id].playVideo();
 }
+
+function marcarActivo(element){
+document.querySelectorAll(".lista-videos li").forEach(li=>li.classList.remove("activo"));
+element.classList.add("activo");
+}
+
+function abrirVideo(url,element){
+Object.values(players).forEach(p=>p.pauseVideo());
+marcarActivo(element);
+let modal=document.getElementById("videoModal");
+let frame=document.getElementById("videoFrame");
+modal.style.display="flex";
+frame.src=url+"&enablejsapi=1";
+}
+
+function cerrarVideo(){
+document.getElementById("videoModal").style.display="none";
+document.getElementById("videoFrame").src="";
+}
+
+document.getElementById("videoModal").addEventListener("click",function(e){
+if(e.target.id==="videoModal"){ cerrarVideo(); }
+});
+
+function toggleMenu(e){
+e.stopPropagation();
+menu.style.display = menu.style.display==="flex" ? "none" : "flex";
+}
+
+document.addEventListener("click",function(e){
+if(menu.style.display==="flex" && !menu.contains(e.target) && !e.target.classList.contains("menu-toggle")){
+menu.style.display="none";
+}
+});
+
+window.addEventListener("scroll",function(){
+if(menu.style.display==="flex"){ menu.style.display="none"; }
+});
+
 </script>
 
 </body>

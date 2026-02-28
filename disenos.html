@@ -3,171 +3,316 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Diseños Premium – Comprar y Descargar</title>
-<link rel="stylesheet" href="style.css"/>
+<title>Diseños Premium – Melamina Fácil</title>
 
 <style>
-.menu-toggle{
-  display:none;
-  font-size:26px;
-  cursor:pointer;
+
+/* GENERAL */
+body{
+margin:0;
+padding-top:60px;
+font-family:Arial, Helvetica, sans-serif;
+background:#f5f5f5;
 }
 
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+}
+
+.section{
+padding:40px 0;
+}
+
+.card{
+background:#fff;
+padding:20px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+
+/* HEADER */
+header{
+background:#81D8D0;
+padding:15px 0;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+}
+
+/* LOGO */
+.logo-container{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-container img{
+height:45px;
+width:auto;
+}
+
+/* NAV */
+.nav-links a{
+margin-left:15px;
+text-decoration:none;
+color:#000;
+font-size:14px;
+}
+
+/* HAMBURGUESA */
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+color:#000;
+}
+
+/* MENU TARJETA */
 .mobile-menu{
-  position:fixed;
-  inset:0;
-  background:#fff;
-  z-index:2000;
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+position:absolute;
+top:70px;
+right:20px;
+width:260px;
+background:#fff;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,.15);
+display:none;
+flex-direction:column;
+padding:15px;
+z-index:3000;
 }
 
 .mobile-menu a{
-  font-size:20px;
-  margin:12px 0;
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px;
+text-decoration:none;
+color:#000;
+border-radius:8px;
+font-size:15px;
 }
 
-.mobile-menu .close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:26px;
-  cursor:pointer;
+.mobile-menu a:hover{
+background:#f2f2f2;
+}
+
+.mobile-menu a.activo{
+background:#81D8D0;
+font-weight:bold;
 }
 
 @media(max-width:768px){
-  .nav-links{ display:none; }
-  .menu-toggle{ display:block; }
+.nav-links{ display:none; }
+.menu-toggle{ display:block; }
 }
+
+/* GRID PRODUCTOS */
+.grid{
+display:grid;
+gap:20px;
+}
+
+.grid-3{
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+
+.product img{
+width:100%;
+border-radius:8px;
+margin-bottom:10px;
+}
+
+.price{
+font-weight:bold;
+margin:10px 0;
+}
+
+.btn{
+background:#111;
+color:#fff;
+border:none;
+padding:10px 15px;
+border-radius:6px;
+cursor:pointer;
+width:100%;
+}
+
+.btn:hover{
+opacity:.9;
+}
+
+.notice{
+background:#fff;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+
+footer{
+background:#111;
+color:#fff;
+padding:20px 0;
+text-align:center;
+margin-top:40px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="container">
-    <nav style="display:flex;justify-content:space-between;align-items:center;">
-      <div><strong>Melamina Fácil</strong></div>
-      <div class="menu-toggle" onclick="abrirMenu()">☰</div>
+<div class="container">
+<nav style="display:flex;justify-content:space-between;align-items:center;">
 
-      <div class="nav-links">
-        <a href="curso.html">Curso</a>
-        <a href="cortes.html">Tipos de corte</a>
-        <a href="herramientas.html">Herramientas</a>
-        <a href="disenos.html">Diseños premium</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<!-- MENÚ MÓVIL -->
-<div class="mobile-menu" id="mobileMenu">
-  <span class="close" onclick="cerrarMenu()">✕</span>
-  <a href="curso.html">Curso</a>
-  <a href="cortes.html">Tipos de corte</a>
-  <a href="herramientas.html">Herramientas</a>
-  <a href="disenos.html">Diseños premium</a>
-  <a href="contacto.html">Contacto</a>
-  <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+<div class="logo-container">
+<img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772170669/Whisk_64ff7a55c55a248a9dd4c314604cba6cdr_disia0.png">
+<strong style="font-size:18px;">Melamina Fácil</strong>
 </div>
 
+<div class="menu-toggle" onclick="toggleMenu(event)">☰</div>
+
+<div class="nav-links">
+<a href="curso.html">Curso</a>
+<a href="cortes.html">Tipos de corte</a>
+<a href="herramientas.html">Herramientas</a>
+<a href="disenos.html">Diseños premium</a>
+<a href="contacto.html">Contacto</a>
+<a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+</div>
+
+</nav>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="curso.html">📘 Curso</a>
+<a href="cortes.html">🪚 Tipos De Corte</a>
+<a href="herramientas.html">🛠 Herramientas</a>
+<a href="disenos.html" class="activo">📐 Diseños Premium</a>
+<a href="contacto.html">📱 Contacto</a>
+<a href="#" onclick="cerrarSesion()">❌ Cerrar Sesión</a>
+</div>
+
+</header>
+
 <main>
-  <section class="section">
-    <div class="container">
-      <h1>Diseños Premium</h1>
-      <p>Compra segura. Descarga inmediata tras el pago.</p>
+<section class="section">
+<div class="container">
 
-      <!-- PRODUCTOS -->
-      <div id="productos" class="grid grid-3"></div>
+<h1 style="text-align:center">Diseños Premium</h1>
+<p style="text-align:center;">Compra segura. Descarga inmediata tras el pago.</p>
 
-      <div class="section notice">
-        <strong>¿Cómo funciona?</strong>
-        <ol>
-          <li>Elige tu diseño.</li>
-          <li>Paga con Stripe Checkout.</li>
-          <li>Vuelves a esta web y descargas tus archivos.</li>
-        </ol>
-      </div>
-    </div>
-  </section>
+<div id="productos" class="grid grid-3"></div>
+
+<div class="section notice">
+<strong>¿Cómo funciona?</strong>
+<ol>
+<li>Elige tu diseño.</li>
+<li>Paga con Stripe Checkout.</li>
+<li>Vuelves a esta web y descargas tus archivos.</li>
+</ol>
+</div>
+
+</div>
+</section>
 </main>
 
 <footer>
-  <div class="container">© 2026 Melamina Fácil</div>
+<div class="container">© 2026 Melamina Fácil</div>
 </footer>
 
-<!-- STRIPE -->
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
-// PROTECCIÓN (opcional)
+
+/* PROTECCIÓN */
 if (!localStorage.getItem("acceso")) {
-  window.location.href = "index.html";
+window.location.href = "index.html";
 }
 
 /* STRIPE CHECKOUT */
 async function checkout(productKey){
-  try{
-    const res = await fetch("/.netlify/functions/create-checkout",{
-      method:"POST",
-      headers:{ "Content-Type":"application/json" },
-      body: JSON.stringify({ product: productKey })
-    });
-    const data = await res.json();
-    if(data.url){
-      window.location = data.url;
-    }else{
-      alert("No se pudo iniciar el pago.");
-    }
-  }catch(e){
-    console.error(e);
-    alert("Error al conectar con el pago.");
-  }
+try{
+const res = await fetch("/.netlify/functions/create-checkout",{
+method:"POST",
+headers:{ "Content-Type":"application/json" },
+body: JSON.stringify({ product: productKey })
+});
+const data = await res.json();
+if(data.url){
+window.location = data.url;
+}else{
+alert("No se pudo iniciar el pago.");
+}
+}catch(e){
+console.error(e);
+alert("Error al conectar con el pago.");
+}
 }
 
-/* CARGAR PRODUCTOS DESDE CSV */
+/* CARGAR PRODUCTOS */
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTYQbqTBrB9zkx6CQeEGf1O0HoYW3Irn4pXCdLIEMONnfr9ioPaAsnbjYHcVJaxEC7T0qfBNMDqDAYu/pub?gid=0&single=true&output=csv";
 
 async function cargarProductos(){
-  const res = await fetch(CSV_URL);
-  const texto = await res.text();
-  const filas = texto.split("\n").slice(1);
-  const contenedor = document.getElementById("productos");
+const res = await fetch(CSV_URL);
+const texto = await res.text();
+const filas = texto.split("\n").slice(1);
+const contenedor = document.getElementById("productos");
 
-  filas.forEach(fila=>{
-    if(!fila.trim()) return;
+filas.forEach(fila=>{
+if(!fila.trim()) return;
 
-    const [nombre, descripcion, precio, link, imagen] = fila.split(",");
+const [nombre, descripcion, precio, link, imagen] = fila.split(",");
 
-    const card = document.createElement("div");
-    card.className = "card product";
-    card.innerHTML = `
-      <img src="${imagen}" alt="${nombre}">
-      <h3>${nombre}</h3>
-      <p>${descripcion}</p>
-      <div class="price">USD ${precio}</div>
-      <button class="btn" onclick="checkout('${link}')">
-        Comprar y descargar
-      </button>
-    `;
-    contenedor.appendChild(card);
-  });
+const card = document.createElement("div");
+card.className = "card product";
+card.innerHTML = `
+<img src="${imagen}" alt="${nombre}">
+<h3>${nombre}</h3>
+<p>${descripcion}</p>
+<div class="price">USD ${precio}</div>
+<button class="btn" onclick="checkout('${link}')">
+Comprar y descargar
+</button>
+`;
+contenedor.appendChild(card);
+});
 }
 cargarProductos();
 
-/* MENÚ MÓVIL */
-function abrirMenu(){
-  document.getElementById("mobileMenu").style.display = "flex";
+/* MENU MOVIL */
+let menu = document.getElementById("mobileMenu");
+
+function toggleMenu(e){
+e.stopPropagation();
+menu.style.display = menu.style.display==="flex" ? "none" : "flex";
 }
-function cerrarMenu(){
-  document.getElementById("mobileMenu").style.display = "none";
+
+document.addEventListener("click",function(e){
+if(menu.style.display==="flex" && !menu.contains(e.target) && !e.target.classList.contains("menu-toggle")){
+menu.style.display="none";
 }
+});
+
+window.addEventListener("scroll",function(){
+if(menu.style.display==="flex"){
+menu.style.display="none";
+}
+});
+
+window.addEventListener("touchmove",function(){
+if(menu.style.display==="flex"){
+menu.style.display="none";
+}
+});
+
 </script>
 
 </body>
 </html>
-

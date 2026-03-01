@@ -331,6 +331,11 @@ window.addEventListener("scroll",function(){
 if(menu.style.display==="flex"){ menu.style.display="none"; }
 });
 
+function cerrarSesion(){
+  localStorage.removeItem("usuarioActivo");
+  window.location.href = "index.html";
+}
+
 </script>
 
 </body>

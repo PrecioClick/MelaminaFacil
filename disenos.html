@@ -233,57 +233,76 @@ if (!localStorage.getItem("acceso")) {
 window.location.href = "index.html";
 }
 
-/* NUEVO GOOGLE SHEET */
+/* GOOGLE SHEET */
 const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR78U7i11n8Q5uIFPVLO2FMCQWFeymHgrCGPBwMdmqvmut_Ic906Nkhr_caQTnHbCC56BKfTvz00NJp/pub?output=csv";
 
 async function cargarProductos(){
 const res = await fetch(CSV_URL);
 const texto = await res.text();
-const filas = texto.split("\n").slice(1);
+
+/* Limpieza correcta de filas */
+const filas = texto.trim().split(/\r?\n/).slice(1);
+
 const contenedor = document.getElementById("productos");
+contenedor.innerHTML = "";
 
 filas.forEach(fila=>{
 if(!fila.trim()) return;
 
-const columnas = fila.split(",");
+const columnas = fila.split(",").map(c => c.trim());
+if(columnas.length < 6) return;
 
 const nombre = columnas[0];
 const descripcion = columnas[1];
-const precio = columnas[2];
+const precioRaw = columnas[2];
 const linkDescarga = columnas[3];
 const imagen = columnas[4];
 const linkCompra = columnas[5];
 
-const esGratis = precio.trim().toLowerCase() === "0" || precio.trim().toLowerCase() === "gratis";
+/* 🔥 DETECCIÓN INTELIGENTE DE GRATIS */
+const precioTexto = precioRaw.toLowerCase();
+const precioNumero = parseFloat(precioRaw);
 
-const accionBoton = esGratis
-? `descargarArchivo('${linkDescarga}')`
-: `window.location.href='${linkCompra}'`;
+const esGratis =
+precioTexto === "gratis" ||
+precioTexto === "free" ||
+precioTexto === "" ||
+(!isNaN(precioNumero) && precioNumero === 0);
 
-const textoPrecio = esGratis ? "Gratis" : `USD ${precio}`;
+/* Mostrar precio correcto */
+const textoPrecio = esGratis ? "Gratis" : `USD ${precioRaw}`;
 
 const card = document.createElement("div");
 card.className = "card product";
+
 card.innerHTML = `
 <img src="${imagen}" alt="${nombre}">
 <h3>${nombre}</h3>
 <p>${descripcion}</p>
 <div class="price">${textoPrecio}</div>
-<button class="btn" onclick="${accionBoton}">
-Comprar y descargar
-</button>
+<button class="btn">Comprar y descargar</button>
 `;
-contenedor.appendChild(card);
-});
-}
 
-function descargarArchivo(url){
+const boton = card.querySelector("button");
+
+/* PRIORIDAD TOTAL A DESCARGA SI ES GRATIS */
+if (esGratis) {
+boton.onclick = () => {
 const enlace = document.createElement("a");
-enlace.href = url;
-enlace.download = "";
+enlace.href = linkDescarga;
+enlace.setAttribute("download", "");
 document.body.appendChild(enlace);
 enlace.click();
 document.body.removeChild(enlace);
+};
+} else {
+boton.onclick = () => {
+window.location.href = linkCompra;
+};
+}
+
+contenedor.appendChild(card);
+});
 }
 
 cargarProductos();

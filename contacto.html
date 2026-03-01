@@ -238,6 +238,10 @@ margin-top:40px;
 
 <script>
 
+if (!localStorage.getItem("acceso")) {
+  window.location.href = "index.html";
+}
+
 let menu = document.getElementById("mobileMenu");
 
 function toggleMenu(e){
@@ -271,6 +275,11 @@ const url = `https://wa.me/51955267888?text=${texto}`;
 window.open(url, "_blank");
 
 form.reset();
+}
+
+function cerrarSesion(){
+  localStorage.removeItem("acceso");
+  window.location.href = "index.html";
 }
 
 </script>

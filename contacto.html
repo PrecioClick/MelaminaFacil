@@ -7,8 +7,7 @@
 
 <style>
 
-/* ===== TODO EL MISMO CSS DE CORTES ===== */
-
+/* GENERAL */
 body{
 margin:0;
 padding-top:60px;
@@ -28,7 +27,7 @@ padding:40px 0;
 
 .card{
 background:#fff;
-padding:20px;
+padding:25px;
 margin-bottom:25px;
 border-radius:10px;
 box-shadow:0 4px 10px rgba(0,0,0,.05);
@@ -113,17 +112,7 @@ font-weight:bold;
 .menu-toggle{ display:block; }
 }
 
-/* FOOTER */
-footer{
-background:#111;
-color:#fff;
-padding:20px 0;
-text-align:center;
-margin-top:40px;
-}
-
-/* ===== SOLO AGREGAMOS ESTO PARA EL FORMULARIO ===== */
-
+/* FORMULARIO */
 form input,
 form textarea{
 width:100%;
@@ -139,6 +128,7 @@ form textarea{
 resize:none;
 }
 
+/* BOTON */
 .btn{
 background:#111;
 color:#fff;
@@ -153,6 +143,15 @@ transition:.3s;
 
 .btn:hover{
 opacity:.85;
+}
+
+/* FOOTER */
+footer{
+background:#111;
+color:#fff;
+padding:20px 0;
+text-align:center;
+margin-top:40px;
 }
 
 </style>
@@ -190,20 +189,16 @@ opacity:.85;
 <a href="contacto.html" class="activo">📱 Contacto</a>
 <a href="#">❌ Cerrar Sesión</a>
 </div>
-
 </header>
 
 <main>
 <section class="section">
-<div class="container" style="max-width:600px;">
+<div class="container" style="max-width:520px">
 
-<h1 style="text-align:center">Contacto</h1>
+<div class="card">
 
-<section class="card">
-
-<p style="text-align:center;">
-Escríbenos y te respondemos por WhatsApp.
-</p>
+<h1 style="text-align:center;">Contacto</h1>
+<p style="text-align:center;">Escríbenos y te respondemos por WhatsApp.</p>
 
 <form onsubmit="enviarWhatsApp(event,this)">
 
@@ -231,7 +226,8 @@ Escríbenos y te respondemos por WhatsApp.
 
 </form>
 
-</section>
+</div>
+
 </div>
 </section>
 </main>
@@ -261,13 +257,7 @@ menu.style.display="none";
 }
 });
 
-window.addEventListener("touchmove",function(){
-if(menu.style.display==="flex"){
-menu.style.display="none";
-}
-});
-
-/* WHATSAPP + LIMPIAR FORMULARIO */
+/* WHATSAPP + RESET */
 function enviarWhatsApp(e,form){
 e.preventDefault();
 
@@ -280,7 +270,7 @@ const url = `https://wa.me/51955267888?text=${texto}`;
 
 window.open(url, "_blank");
 
-form.reset(); // 👈 LIMPIA LOS CAMPOS
+form.reset();
 }
 
 </script>

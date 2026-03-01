@@ -224,7 +224,7 @@ allow="autoplay" allowfullscreen></iframe>
 <ul class="lista-videos">
 <li onclick="playPrincipal(2,this)">Kit de Herramientas Basicas</li>
 <li onclick="abrirVideo('https://www.youtube.com/embed/3Dpmgn9cCiA?autoplay=1',this)">Kit de Herramientas Intermedias</li>
-<li onclick="abrirVideo('https://www.youtube.com/embed/MpCRJ1qAKzA?autoplay=1',this)">Kit de Herramientas Profesionales</li>
+<li onclick="abrirVideo('https://www.youtube.com/embed/iNkOYR4slVM?autoplay=1',this)">Kit de Herramientas Profesionales</li>
 </ul>
 </section>
 
@@ -399,6 +399,11 @@ menu.style.display="none";
 window.addEventListener("scroll",function(){
 if(menu.style.display==="flex"){ menu.style.display="none"; }
 });
+
+function cerrarSesion(){
+  localStorage.removeItem("acceso");
+  window.location.href = "index.html";
+}
 
 </script>
 

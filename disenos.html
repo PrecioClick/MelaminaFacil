@@ -134,17 +134,25 @@ margin:10px 0;
 }
 
 .btn{
-background:#111;
-color:#fff;
 border:none;
 padding:10px 15px;
 border-radius:6px;
 cursor:pointer;
 width:100%;
+color:#fff;
+font-weight:bold;
 }
 
 .btn:hover{
 opacity:.9;
+}
+
+.btn-gratis{
+background:#28a745;
+}
+
+.btn-pago{
+background:#111;
 }
 
 .notice{
@@ -228,8 +236,14 @@ margin-top:40px;
 
 <script>
 
-/* PROTECCIÓN */
+/* 🔐 PROTECCIÓN */
 if (!localStorage.getItem("acceso")) {
+window.location.href = "index.html";
+}
+
+/* 🔓 CERRAR SESIÓN */
+function cerrarSesion(){
+localStorage.removeItem("acceso");
 window.location.href = "index.html";
 }
 
@@ -239,10 +253,7 @@ const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR78U7i11n8Q5uI
 async function cargarProductos(){
 const res = await fetch(CSV_URL);
 const texto = await res.text();
-
-/* Limpieza correcta de filas */
 const filas = texto.trim().split(/\r?\n/).slice(1);
-
 const contenedor = document.getElementById("productos");
 contenedor.innerHTML = "";
 
@@ -259,34 +270,41 @@ const linkDescarga = columnas[3];
 const imagen = columnas[4];
 const linkCompra = columnas[5];
 
-/* 🔥 DETECCIÓN INTELIGENTE DE GRATIS */
-const precioTexto = precioRaw.toLowerCase();
-const precioNumero = parseFloat(precioRaw);
+/* NORMALIZAR PRECIO */
+let precioLimpio = precioRaw.toString().trim().toLowerCase().replace(",", ".");
+let numero = Number(precioLimpio);
 
 const esGratis =
-precioTexto === "gratis" ||
-precioTexto === "free" ||
-precioTexto === "" ||
-(!isNaN(precioNumero) && precioNumero === 0);
-
-/* Mostrar precio correcto */
-const textoPrecio = esGratis ? "Gratis" : `USD ${precioRaw}`;
+precioLimpio === "gratis" ||
+precioLimpio === "free" ||
+precioLimpio === "" ||
+(!isNaN(numero) && numero === 0);
 
 const card = document.createElement("div");
 card.className = "card product";
+
+let botonTexto;
+let botonClase;
+
+if(esGratis){
+botonTexto = "Descargar Gratis";
+botonClase = "btn btn-gratis";
+}else{
+botonTexto = `Comprar por USD ${precioRaw}`;
+botonClase = "btn btn-pago";
+}
 
 card.innerHTML = `
 <img src="${imagen}" alt="${nombre}">
 <h3>${nombre}</h3>
 <p>${descripcion}</p>
-<div class="price">${textoPrecio}</div>
-<button class="btn">Comprar y descargar</button>
+<div class="price">${esGratis ? "Gratis" : "USD " + precioRaw}</div>
+<button class="${botonClase}">${botonTexto}</button>
 `;
 
 const boton = card.querySelector("button");
 
-/* PRIORIDAD TOTAL A DESCARGA SI ES GRATIS */
-if (esGratis) {
+if(esGratis){
 boton.onclick = () => {
 const enlace = document.createElement("a");
 enlace.href = linkDescarga;
@@ -295,7 +313,7 @@ document.body.appendChild(enlace);
 enlace.click();
 document.body.removeChild(enlace);
 };
-} else {
+}else{
 boton.onclick = () => {
 window.location.href = linkCompra;
 };

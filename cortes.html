@@ -264,6 +264,10 @@ sin improvisar, sin errores y sin perder dinero.
 
 <script>
 
+if(!localStorage.getItem("usuarioActivo")){
+  window.location.href = "index.html";
+}
+
 let players = {};
 let menu = document.getElementById("mobileMenu");
 
@@ -343,6 +347,11 @@ if(menu.style.display==="flex"){
 menu.style.display="none";
 }
 });
+
+function cerrarSesion(){
+  localStorage.removeItem("usuarioActivo");
+  window.location.href = "index.html";
+}
 
 </script>
 

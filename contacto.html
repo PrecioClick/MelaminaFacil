@@ -3,145 +3,276 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Contacto</title>
-<link rel="stylesheet" href="style.css"/>
+<title>Contacto – Melamina Fácil</title>
 
 <style>
-.menu-toggle{
-  display:none;
-  font-size:26px;
-  cursor:pointer;
+
+/* GENERAL */
+body{
+margin:0;
+padding-top:60px;
+font-family:Arial, Helvetica, sans-serif;
+background:#f5f5f5;
 }
 
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+}
+
+.section{
+padding:40px 0;
+}
+
+.card{
+background:#fff;
+padding:25px;
+margin-bottom:25px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+
+/* LOGO */
+.logo-container{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-container img{
+height:45px;
+width:auto;
+}
+
+/* HEADER */
+header{
+background:#81D8D0;
+padding:15px 0px;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+}
+
+/* MENU NORMAL */
+.nav-links a{
+margin-left:15px;
+text-decoration:none;
+color:#000;
+font-size:14px;
+}
+
+/* HAMBURGUESA */
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+color:#000;
+}
+
+/* MENU TARJETA */
 .mobile-menu{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:#fff;
-  z-index:2000;
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+position:absolute;
+top:70px;
+right:20px;
+width:260px;
+background:#fff;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,.15);
+display:none;
+flex-direction:column;
+padding:15px;
+z-index:3000;
 }
 
 .mobile-menu a{
-  font-size:20px;
-  margin:12px 0;
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px;
+text-decoration:none;
+color:#000;
+border-radius:8px;
+font-size:15px;
 }
 
-.mobile-menu .close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:26px;
-  cursor:pointer;
+.mobile-menu a:hover{
+background:#f2f2f2;
+}
+
+.mobile-menu a.activo{
+background:#81D8D0;
+font-weight:bold;
 }
 
 @media(max-width:768px){
-  .nav-links{
-    display:none;
-  }
-  .menu-toggle{
-    display:block;
-  }
+.nav-links{ display:none; }
+.menu-toggle{ display:block; }
 }
+
+/* FORMULARIO */
+form input,
+form textarea{
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:6px;
+border:1px solid #ccc;
+font-size:14px;
+box-sizing:border-box;
+}
+
+form textarea{
+resize:none;
+}
+
+/* BOTON */
+.btn{
+background:#111;
+color:#fff;
+padding:12px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+width:100%;
+transition:.3s;
+}
+
+.btn:hover{
+opacity:.85;
+}
+
+/* FOOTER */
+footer{
+background:#111;
+color:#fff;
+padding:20px 0;
+text-align:center;
+margin-top:40px;
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="container">
-    <nav style="display:flex;justify-content:space-between;align-items:center;">
-      <div><strong>Melamina Fácil</strong></div>
-      <div class="menu-toggle" onclick="abrirMenu()">☰</div>
+<div class="container">
+<nav style="display:flex;justify-content:space-between;align-items:center;">
 
-      <div class="nav-links">
-        <a href="curso.html">Curso</a>
-        <a href="cortes.html">Tipos de corte</a>
-        <a href="herramientas.html">Herramientas</a>
-        <a href="disenos.html">Diseños premium</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<div class="mobile-menu" id="mobileMenu">
-  <span class="close" onclick="cerrarMenu()">✕</span>
-  <a href="curso.html">Curso</a>
-  <a href="cortes.html">Tipos de corte</a>
-  <a href="herramientas.html">Herramientas</a>
-  <a href="disenos.html">Diseños premium</a>
-  <a href="contacto.html">Contacto</a>
-  <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+<div class="logo-container">
+<strong style="font-size:18px;">Melamina Fácil</strong>
 </div>
 
+<div class="menu-toggle" onclick="toggleMenu(event)">☰</div>
+
+<div class="nav-links">
+<a href="curso.html">Curso</a>
+<a href="cortes.html">Tipos de corte</a>
+<a href="herramientas.html">Herramientas</a>
+<a href="disenos.html">Diseños premium</a>
+<a href="contacto.html">Contacto</a>
+</div>
+
+</nav>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="curso.html">📘 Curso</a>
+<a href="cortes.html">🪚 Tipos De Corte</a>
+<a href="herramientas.html">🛠 Herramientas</a>
+<a href="disenos.html">📐 Diseños Premium</a>
+<a href="contacto.html" class="activo">📱 Contacto</a>
+<a href="#">❌ Cerrar Sesión</a>
+</div>
+</header>
+
 <main>
-  <section class="section">
-    <div class="container" style="max-width:520px">
-      <h1>Contacto</h1>
-      <p>Escríbenos y te respondemos por WhatsApp.</p>
+<section class="section">
+<div class="container" style="max-width:520px">
 
-      <form onsubmit="enviarWhatsApp(event)">
-        <p>
-          <label>Nombre<br>
-            <input type="text" id="nombre" required>
-          </label>
-        </p>
+<div class="card">
 
-        <p>
-          <label>Email<br>
-            <input type="email" id="email" required>
-          </label>
-        </p>
+<h1 style="text-align:center;">Contacto</h1>
+<p style="text-align:center;">Escríbenos y te respondemos por WhatsApp.</p>
 
-        <p>
-          <label>Mensaje<br>
-            <textarea id="mensaje" rows="5" required></textarea>
-          </label>
-        </p>
+<form onsubmit="enviarWhatsApp(event,this)">
 
-        <p>
-          <button class="btn" type="submit">Enviar por WhatsApp</button>
-        </p>
-      </form>
-    </div>
-  </section>
+<p>
+<label>Nombre<br>
+<input type="text" id="nombre" required>
+</label>
+</p>
+
+<p>
+<label>Email<br>
+<input type="email" id="email" required>
+</label>
+</p>
+
+<p>
+<label>Mensaje<br>
+<textarea id="mensaje" rows="5" required></textarea>
+</label>
+</p>
+
+<p>
+<button class="btn" type="submit">Enviar Mensaje</button>
+</p>
+
+</form>
+
+</div>
+
+</div>
+</section>
 </main>
 
 <footer>
-  <div class="container">© 2026 Melamina Fácil</div>
+<div class="container">© 2026 Melamina Fácil</div>
 </footer>
 
-<script src="main.js"></script>
-
 <script>
-function enviarWhatsApp(e){
-  e.preventDefault();
 
-  const nombre = document.getElementById("nombre").value;
-  const email = document.getElementById("email").value;
-  const mensaje = document.getElementById("mensaje").value;
+let menu = document.getElementById("mobileMenu");
 
-  const texto = `Hola, soy ${nombre}%0AEmail: ${email}%0AMensaje: ${mensaje}`;
-  const url = `https://wa.me/51955267888?text=${texto}`;
-
-  window.open(url, "_blank");
+function toggleMenu(e){
+e.stopPropagation();
+menu.style.display = menu.style.display==="flex" ? "none" : "flex";
 }
 
-/* MENU MOVIL – PASO 4 CORRECTO */
-function abrirMenu(){
-  document.getElementById("mobileMenu").style.display = "flex";
+document.addEventListener("click",function(e){
+if(menu.style.display==="flex" && !menu.contains(e.target) && !e.target.classList.contains("menu-toggle")){
+menu.style.display="none";
+}
+});
+
+window.addEventListener("scroll",function(){
+if(menu.style.display==="flex"){
+menu.style.display="none";
+}
+});
+
+/* WHATSAPP + RESET */
+function enviarWhatsApp(e,form){
+e.preventDefault();
+
+const nombre = document.getElementById("nombre").value;
+const email = document.getElementById("email").value;
+const mensaje = document.getElementById("mensaje").value;
+
+const texto = `Hola, soy ${nombre}%0AEmail: ${email}%0AMensaje: ${mensaje}`;
+const url = `https://wa.me/51955267888?text=${texto}`;
+
+window.open(url, "_blank");
+
+/* LIMPIAR FORMULARIO */
+form.reset();
 }
 
-function cerrarMenu(){
-  document.getElementById("mobileMenu").style.display = "none";
-}
 </script>
 
 </body>

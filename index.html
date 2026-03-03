@@ -165,15 +165,15 @@
         <h2 class="text-red-600 text-3xl md:text-5xl font-black mb-12 underline italic">+3 BONOS GRATIS SOLO POR HOY</h2>
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             <div class="space-y-4">
-                <p class="font-bold text-blue-800">BONO #1: GUÍA CARPINTERÍA</p>
+                <p class="font-bold text-blue-800">BONO #1: GUÍA DE CARPINTERÍA</p>
                 <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429487/Whisk_6d17d72736290f59fe040900ddb5eed5dr_z3vu45.png" class="mx-auto shadow-xl rounded-lg">
             </div>
             <div class="space-y-4">
-                <p class="font-bold text-blue-800">BONO #2: MUEBLES CON PALLETS</p>
+                <p class="font-bold text-blue-800">BONO #2: PLANOS DE BIBLIOTECA</p>
                 <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429486/Whisk_f84bcdb98d5ca068a7e40efd96d99be7dr_vqfxie.png" class="mx-auto shadow-xl rounded-lg">
             </div>
             <div class="space-y-4">
-                <p class="font-bold text-blue-800">BONO #3: CURSO EBANISTERÍA</p>
+                <p class="font-bold text-blue-800">BONO #3: PLANOS DE ESCRITORIO</p>
                 <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429487/Whisk_97952d16aaaff219afa46879f45bc2b9dr_t3f6vs.png" class="mx-auto shadow-xl rounded-lg">
             </div>
         </div>
@@ -184,12 +184,12 @@
         <p class="text-xl mb-8 uppercase">TERMINA HOY A LAS 11:59 PM</p>
         
         <div class="flex justify-center space-x-4 mb-10">
-            <div><span class="timer-box text-3xl">08</span><p class="text-xs mt-1">HORAS</p></div>
-            <div><span class="timer-box text-3xl">31</span><p class="text-xs mt-1">MINUTOS</p></div>
-            <div><span class="timer-box text-3xl">23</span><p class="text-xs mt-1">SEGUNDOS</p></div>
+            <div><span id="horas" class="timer-box text-3xl">00</span><p class="text-xs mt-1">HORAS</p></div>
+            <div><span id="minutos" class="timer-box text-3xl">00</span><p class="text-xs mt-1">MINUTOS</p></div>
+            <div><span id="segundos" class="timer-box text-3xl">00</span><p class="text-xs mt-1">SEGUNDOS</p></div>
         </div>
 
-        <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429488/Whisk_0142a8c775d7e77b26b4595c3bb3376adr_cos1nh.png" class="mx-auto max-w-md mb-8 px-4">
+        <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429488/Whisk_0142a8c775d7e77b26b4595c3bb3376adr_cos1nh.png" class="mx-auto w-full max-w-sm md:max-w-md h-auto mb-8">
         
         <p class="text-gray-400 line-through text-2xl italic">Antes S/ 99.00</p>
         <p class="text-5xl md:text-7xl font-black text-green-500 my-4">S/ 19.99</p>
@@ -231,9 +231,10 @@
         </a>
     </section>
 
-    <a href="https://wa.me/TUNUMERO" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition z-50">
-        <i class="fab fa-whatsapp text-4xl"></i>
-    </a>
+   <a href="https://wa.me/51955267888" target="_blank"
+      class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition transform z-[9999]">
+      <i class="fab fa-whatsapp text-4xl"></i>
+   </a>
 
     <footer class="bg-gray-900 text-gray-500 py-8 text-center text-xs px-4">
         <p>© 2026 Maestros de la Melamina. Todos los derechos reservados.</p>
@@ -269,5 +270,45 @@
             document.getElementById('loginOverlay').style.display = 'none';
         }
     </script>
+    // FUNCIONES LOGIN
+    function abrirLogin() {
+        document.getElementById('loginOverlay').style.display = 'flex';
+    }
+    function cerrarLogin() {
+        document.getElementById('loginOverlay').style.display = 'none';
+    }
+
+    // CONTADOR HASTA 11:59 PM
+    const horasElem = document.getElementById('horas');
+    const minutosElem = document.getElementById('minutos');
+    const segundosElem = document.getElementById('segundos');
+
+    function actualizarContador() {
+        const ahora = new Date();
+        const fin = new Date();
+        fin.setHours(23, 59, 0, 0); // Hoy a las 23:59:00
+
+        let diferencia = fin - ahora;
+
+        if (diferencia <= 0) {
+            horasElem.textContent = '00';
+            minutosElem.textContent = '00';
+            segundosElem.textContent = '00';
+            clearInterval(intervalo);
+            return;
+        }
+
+        const horas = Math.floor(diferencia / (1000 * 60 * 60));
+        const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+        horasElem.textContent = String(horas).padStart(2, '0');
+        minutosElem.textContent = String(minutos).padStart(2, '0');
+        segundosElem.textContent = String(segundos).padStart(2, '0');
+    }
+
+    const intervalo = setInterval(actualizarContador, 1000);
+    actualizarContador();
+</script>
 </body>
 </html>

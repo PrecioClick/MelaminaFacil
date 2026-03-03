@@ -6,6 +6,7 @@
     <title>Master en Melamina - Curso Online</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         .bg-yellow-main { background-color: #FFD700; }
         .timer-box { background: #000; color: #fff; padding: 10px; border-radius: 8px; font-weight: bold; min-width: 65px; display: inline-block; }
@@ -13,7 +14,6 @@
         .btn-green:hover { background-color: #218838; transform: scale(1.05); }
         body { overflow-x: hidden; }
 
-        /* Estilos del Modal de Login */
         #loginOverlay {
             position: fixed;
             inset: 0;
@@ -50,220 +50,89 @@
         }
     </style>
 </head>
+
 <body class="bg-white font-sans text-gray-900">
 
-    <div class="bg-red-600 text-white text-center py-2 font-bold text-sm uppercase px-4">
-        ¡GENERA DESDE $1,000 DÓLARES MENSUALES EXTRAS!
-    </div>
+<div class="bg-red-600 text-white text-center py-2 font-bold text-sm uppercase px-4">
+¡GENERA DESDE $1,000 DÓLARES MENSUALES EXTRAS!
+</div>
 
-    <header class="text-center py-6 px-4">
-        <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429488/Whisk_0142a8c775d7e77b26b4595c3bb3376adr_cos1nh.png" alt="Portada" class="mx-auto max-w-4xl w-full shadow-lg rounded-lg">
-        
-        <div class="mt-8">
-            <a href="#checkout" class="btn-green text-white font-black py-5 px-8 rounded-full text-xl md:text-2xl uppercase shadow-2xl inline-block animate-bounce">
-                ACCEDER AL MEGA PACK COMPLETO
-            </a>
-            <p class="mt-4 text-sm text-gray-500 underline cursor-pointer" onclick="abrirLogin()">¿Ya tienes acceso? Ingresa aquí</p>
-        </div>
-    </header>
+<header class="text-center py-6 px-4">
+<img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429488/Whisk_0142a8c775d7e77b26b4595c3bb3376adr_cos1nh.png" 
+class="mx-auto max-w-4xl w-full shadow-lg rounded-lg">
 
-    <section class="max-w-5xl mx-auto px-6 py-12 text-center">
-        <h2 class="text-3xl md:text-4xl font-extrabold mb-10">La Melamina es la forma más <span class="text-blue-700 underline">inteligente y rentable</span> de fabricar muebles modernos</h2>
-        
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
-            <div class="space-y-2">
-                <i class="fas fa-hammer text-3xl text-yellow-500"></i>
-                <p><b>Accesible taller:</b> Fabrica desde casa con poco espacio y sin maquinaria cara.</p>
-            </div>
-            <div class="space-y-2">
-                <i class="fas fa-pencil-ruler text-3xl text-yellow-500"></i>
-                <p><b>Planos fáciles:</b> Planos y listas de corte para aprovechar cada tablero.</p>
-            </div>
-            <div class="space-y-2">
-                <i class="fas fa-chart-line text-3xl text-yellow-500"></i>
-                <p><b>Bajo costo:</b> Material accesible, proceso simple y márgenes altos.</p>
-            </div>
-        </div>
-    </section>
+<div class="mt-8">
+<a href="#" onclick="abrirLogin()" 
+class="btn-green text-white font-black py-5 px-8 rounded-full text-xl md:text-2xl uppercase shadow-2xl inline-block animate-bounce">
+ACCEDER AL MEGA PACK COMPLETO
+</a>
 
-    <section class="bg-yellow-main py-10 text-center border-y-4 border-red-600">
-        <h2 class="text-4xl md:text-6xl font-black text-red-700 mb-2 uppercase italic">¡HOY AL 90% OFF!</h2>
-        <h3 class="text-2xl font-bold mb-8 uppercase">¡NO TE QUEDES AFUERA!</h3>
-        <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429488/Whisk_6bfd8dbf90abc2ebb4848a5a043b70e1dr_uvmb8d.png" alt="Promo" class="mx-auto max-w-2xl px-4">
-    </section>
+<p class="mt-4 text-sm text-gray-500 underline cursor-pointer" onclick="abrirLogin()">
+¿Ya tienes acceso? Ingresa aquí
+</p>
+</div>
+</header>
 
-    <section class="py-16 bg-gray-50 px-4">
-        <h3 class="text-center text-2xl font-bold mb-10 italic">¡Imagina los muebles increíbles que vas a poder crear <span class="text-orange-600">con tus propias manos!</span></h3>
-        <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-4">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772432317/Whisk_d609191472e2fc8a0f2487be9b0314dbdr_d7zmsh.png" class="rounded shadow-md hover:scale-105 transition">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772432317/Whisk_1fddc502e616e1d8e794bf938d48fcf0dr_edzs6g.png" class="rounded shadow-md hover:scale-105 transition">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772432317/Whisk_e6ef2c7aa807aa491514f6bbef5508b4dr_mhmxlb.png" class="rounded shadow-md hover:scale-105 transition">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772432316/Whisk_a7773dea39c96cda21b49974e94712eadr_luh7ce.png" class="rounded shadow-md hover:scale-105 transition">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772432315/Whisk_d3f20406c214a5282d74a8e2c28e2563dr_iahae7.png" class="rounded shadow-md hover:scale-105 transition">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772432316/Whisk_59893d83f77589b8b454292174cf8805dr_zqlhgm.png" class="rounded shadow-md hover:scale-105 transition">
-        </div>
-    </section>
+<section id="checkout" class="py-16 bg-gray-900 text-white text-center px-4">
+<h2 class="text-2xl md:text-4xl font-black text-yellow-400 mb-6 uppercase">
+90% OFF HASTA AGOTAR 13 CUPOS
+</h2>
 
-    <section class="py-16 px-4 bg-white border-t">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8 italic">Este curso es <span class="text-orange-500">para ti si:</span></h2>
-            <p class="max-w-2xl mx-auto mb-10 text-gray-600 font-medium">Si quieres aprender rápido, con un plan claro y sin tecnicismos, este curso es para ti.</p>
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429486/Whisk_509f83a24fefc91ba2a4326ab52863ffdr_s1ieuy.png" class="mx-auto mb-8 max-w-full">
-            
-             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow">
-                    <i class="fas fa-tools text-3xl text-red-500 mb-4"></i>
-                    <p class="font-bold">Quieres un oficio real desde casa</p>
-                    <p class="text-sm">Trabajar por tu cuenta y vivir de lo que hacés, sin jefes ni horarios.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow">
-                    <i class="fas fa-piggy-bank text-3xl text-red-500 mb-4"></i>
-                    <p class="font-bold">Empezar desde cero</p>
-                    <p class="text-sm">Nunca trabajaste con melamina y quieres aprender paso a paso.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow">
-                    <i class="fas fa-graduation-cap text-3xl text-red-500 mb-4"></i>
-                    <p class="font-bold">Buscas ingresos propios</p>
-                    <p class="text-sm">Fabricar y vender muebles modernos con alta demanda.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<p class="text-xl mb-8 uppercase">TERMINA HOY A LAS 11:59 PM</p>
 
-    <section class="py-16 px-4 bg-gray-50">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-black mb-10 italic text-blue-900">Y lo mejor de todo...</h2>
-            <p class="max-w-2xl mx-auto mb-10 text-gray-600 font-medium">Entrás con poco y empezaras a ver avances reales sin complicarte ni gastar de más.</p>
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429488/Whisk_05c76848a20e6208aab4a94482e0f2abdr_emmw2s.png" class="mx-auto mb-10 max-w-full">
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow">
-                    <i class="fas fa-tools text-3xl text-red-500 mb-4"></i>
-                    <p class="font-bold">Sin equipos costosos</p>
-                    <p class="text-sm">Comienza con herramientas manuales básicas y accesibles.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow">
-                    <i class="fas fa-piggy-bank text-3xl text-red-500 mb-4"></i>
-                    <p class="font-bold">Sin invertir una fortuna</p>
-                    <p class="text-sm">No necesitas un taller enorme ni maquinaria industrial.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow">
-                    <i class="fas fa-graduation-cap text-3xl text-red-500 mb-4"></i>
-                    <p class="font-bold">Sin experiencia previa</p>
-                    <p class="text-sm">Diseñado para que aprendas paso a paso desde el nivel cero.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<p class="text-gray-400 line-through text-2xl italic">Antes USD 99.00</p>
+<p class="text-5xl md:text-7xl font-black text-green-500 my-4">USD 24.99</p>
 
-    <section class="py-16 bg-white text-center px-4">
-        <h2 class="text-red-600 text-3xl md:text-5xl font-black mb-12 underline italic">+3 BONOS GRATIS SOLO POR HOY</h2>
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-            <div class="space-y-4">
-                <p class="font-bold text-blue-800">BONO #1: GUÍA CARPINTERÍA</p>
-                <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429487/Whisk_6d17d72736290f59fe040900ddb5eed5dr_z3vu45.png" class="mx-auto shadow-xl rounded-lg">
-            </div>
-            <div class="space-y-4">
-                <p class="font-bold text-blue-800">BONO #2: MUEBLES CON PALLETS</p>
-                <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429486/Whisk_f84bcdb98d5ca068a7e40efd96d99be7dr_vqfxie.png" class="mx-auto shadow-xl rounded-lg">
-            </div>
-            <div class="space-y-4">
-                <p class="font-bold text-blue-800">BONO #3: CURSO EBANISTERÍA</p>
-                <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429487/Whisk_97952d16aaaff219afa46879f45bc2b9dr_t3f6vs.png" class="mx-auto shadow-xl rounded-lg">
-            </div>
-        </div>
-    </section>
+<a href="#" onclick="abrirLogin()"
+class="btn-green text-white font-black py-6 px-12 rounded-xl text-2xl md:text-3xl shadow-2xl inline-block mt-4">
+<i class="fas fa-shopping-cart mr-2"></i> OBTENER DESCUENTO
+</a>
+</section>
 
-    <section id="checkout" class="py-16 bg-gray-900 text-white text-center px-4">
-        <h2 class="text-2xl md:text-4xl font-black text-yellow-400 mb-6 uppercase">90% OFF HASTA AGOTAR 13 CUPOS</h2>
-        <p class="text-xl mb-8 uppercase">TERMINA HOY A LAS 11:59 PM</p>
-        
-        <div class="flex justify-center space-x-4 mb-10">
-            <div><span class="timer-box text-3xl">08</span><p class="text-xs mt-1">HORAS</p></div>
-            <div><span class="timer-box text-3xl">31</span><p class="text-xs mt-1">MINUTOS</p></div>
-            <div><span class="timer-box text-3xl">23</span><p class="text-xs mt-1">SEGUNDOS</p></div>
-        </div>
+<section class="py-20 bg-white text-center px-4 border-t-8 border-yellow-400">
+<h3 class="text-3xl font-black mb-4">¡7 DÍAS DE GARANTÍA TOTAL!</h3>
 
-        <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429488/Whisk_0142a8c775d7e77b26b4595c3bb3376adr_cos1nh.png" class="mx-auto max-w-md mb-8 px-4">
-        
-        <p class="text-gray-400 line-through text-2xl italic">Antes USD 99.00</p>
-        <p class="text-5xl md:text-7xl font-black text-green-500 my-4">USD 24.99</p>
+<a href="#" onclick="abrirLogin()"
+class="btn-green text-white font-black py-6 px-12 rounded-full text-2xl md:text-3xl shadow-2xl inline-block uppercase">
+SÍ, QUIERO ACCEDER AHORA
+</a>
+</section>
 
-        <a href="TU_LINK_DE_PAGO_HOTMART" class="btn-green text-white font-black py-6 px-12 rounded-xl text-2xl md:text-3xl shadow-2xl inline-block mt-4">
-            <i class="fas fa-shopping-cart mr-2"></i> OBTENER DESCUENTO
-        </a>
+<div id="loginOverlay">
+<div id="loginBox">
+<span id="cerrarLogin" onclick="cerrarLogin()">✕</span>
 
-        <div class="mt-10">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772433960/images_7_vw48zm.jpg" alt="Pagos" class="mx-auto max-h-12 grayscale invert">
-        </div>
-    </section>
+<h2 class="text-2xl font-bold mb-6 text-center text-gray-800">
+Acceso al Curso
+</h2>
 
-    <section class="py-16 bg-white text-center px-4">
-        <h2 class="text-3xl font-bold mb-10 italic">Más de 100 Clases en <span class="text-red-600">video descargable</span></h2>
-        <div class="flex flex-wrap justify-center gap-6">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772430286/Whisk_a0246b9ae14a36aa1c74f3987a8b1827dr_gbswej.png" class="max-w-xs shadow-lg rounded-xl">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429488/Whisk_f82e29ee1b8b82abc054f70fdc9def92dr_g1qni4.png" class="max-w-xs shadow-lg rounded-xl">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429487/Whisk_1544ae044cf8567a7d04212c43f11113dr_efadek.png" class="max-w-xs shadow-lg rounded-xl">
-        </div>
-    </section>
+<input type="text" id="usuario" placeholder="Nombre de usuario">
+<input type="password" id="password" placeholder="Contraseña">
 
-    <section class="py-16 bg-gray-50 text-center px-4">
-        <h2 class="text-3xl font-black mb-12 italic text-blue-900 underline">Lo que dicen nuestros alumnos satisfechos</h2>
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 items-start">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429486/Whisk_b8b945088f0bd94b05343cac2e98d399dr_mitihx.png" class="mx-auto rounded-xl shadow-lg border w-full">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429486/Whisk_e54113b043b8ea999dd4deab2a7afbe6dr_kterkz.png" class="mx-auto rounded-xl shadow-lg border w-full">
-            <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772429486/Whisk_9c498c211b39e53a6d74e25ee1303b06dr_uvwxbv.png" class="mx-auto rounded-xl shadow-lg border w-full">
-        </div>
-    </section>
+<button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg w-full transition" onclick="login()">
+Ingresar al Área de Miembros
+</button>
 
-    <section class="py-20 bg-white text-center px-4 border-t-8 border-yellow-400">
-        <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772434151/descarga_29_pp2l5d.jpg" alt="Garantia" class="mx-auto mb-8 w-40">
-        <h3 class="text-3xl font-black mb-4">¡7 DÍAS DE GARANTÍA TOTAL!</h3>
-        <p class="max-w-2xl mx-auto mb-10 text-gray-600 font-medium">Prueba nuestro curso hoy mismo. Si en los primeros 7 días sientes que no es para ti, te devolvemos el 100% de tu dinero de inmediato.</p>
-        
-        <a href="#checkout" class="btn-green text-white font-black py-6 px-12 rounded-full text-2xl md:text-3xl shadow-2xl inline-block uppercase">
-            SÍ, QUIERO ACCEDER AHORA
-        </a>
-    </section>
+<p class="text-center mt-6">
+<a href="https://wa.me/51955267888" target="_blank"
+class="text-green-600 font-bold flex items-center justify-center gap-2">
+<i class="fab fa-whatsapp"></i> Solicitar acceso por WhatsApp
+</a>
+</p>
 
-    <a href="https://wa.me/TUNUMERO" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition z-50">
-        <i class="fab fa-whatsapp text-4xl"></i>
-    </a>
+</div>
+</div>
 
-    <footer class="bg-gray-900 text-gray-500 py-8 text-center text-xs px-4">
-        <p>© 2026 Maestros de la Melamina. Todos los derechos reservados.</p>
-    </footer>
+<script src="main.js"></script>
 
-    <div id="loginOverlay">
-        <div id="loginBox">
-            <span id="cerrarLogin" onclick="cerrarLogin()">✕</span>
-            <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Acceso al Curso</h2>
+<script>
+function abrirLogin() {
+document.getElementById('loginOverlay').style.display = 'flex';
+}
+function cerrarLogin() {
+document.getElementById('loginOverlay').style.display = 'none';
+}
+</script>
 
-            <input type="text" id="usuario" placeholder="Nombre de usuario">
-            <input type="password" id="password" placeholder="Contraseña">
-
-            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg w-full transition" onclick="login()">
-                Ingresar al Área de Miembros
-            </button>
-
-            <p class="text-center mt-6">
-                <a href="https://wa.me/51955267888" target="_blank" class="text-green-600 font-bold flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp"></i> Solicitar acceso por WhatsApp
-                </a>
-            </p>
-        </div>
-    </div>
-
-    <script src="main.js"></script>
-
-    <script>
-        function abrirLogin() {
-            document.getElementById('loginOverlay').style.display = 'flex';
-        }
-        function cerrarLogin() {
-            document.getElementById('loginOverlay').style.display = 'none';
-        }
-        
-    </script>
 </body>
 </html>

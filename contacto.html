@@ -25,6 +25,14 @@ margin:auto;
 padding:40px 0;
 }
 
+.titulo-seccion{
+text-align:center;
+color:#1E3A8A;
+font-size:32px;
+margin-bottom:10px;
+font-weight:900;
+}
+
 .card{
 background:#fff;
 padding:25px;
@@ -41,13 +49,17 @@ gap:10px;
 }
 
 .logo-container img{
-height:45px;
-width:auto;
+height:38px;
+width:38px;
+border-radius:50%;
+background:#fff;
+padding:4px;
+object-fit:cover;
 }
 
 /* HEADER */
 header{
-background:#81D8D0;
+background:#DC2626;
 padding:15px 0px;
 position:fixed;
 top:0;
@@ -60,16 +72,17 @@ z-index:1000;
 .nav-links a{
 margin-left:15px;
 text-decoration:none;
-color:#000;
+color:#fff;
 font-size:14px;
+font-weight:bold;
 }
-
+  
 /* HAMBURGUESA */
 .menu-toggle{
 display:none;
 font-size:26px;
 cursor:pointer;
-color:#000;
+color:#fff;
 }
 
 /* MENU TARJETA */
@@ -130,7 +143,7 @@ resize:none;
 
 /* BOTON */
 .btn{
-background:#111;
+background:#25D366; /* verde WhatsApp */
 color:#fff;
 padding:12px;
 border:none;
@@ -165,7 +178,7 @@ margin-top:40px;
 
 <div class="logo-container">
 <img src="https://res.cloudinary.com/dy0bpqylb/image/upload/v1772170669/Whisk_64ff7a55c55a248a9dd4c314604cba6cdr_disia0.png">
-<strong style="font-size:18px;">Melamina Fácil</strong>
+<strong style="font-size:18px; color:#fff;">Melamina Fácil</strong>
 </div>
 
 <div class="menu-toggle" onclick="toggleMenu(event)">☰</div>
@@ -197,7 +210,7 @@ margin-top:40px;
 
 <div class="card">
 
-<h1 style="text-align:center;">Contacto</h1>
+<h1 class="titulo-seccion"">Contacto</h1>
 <p style="text-align:center;">Escríbenos y te respondemos por WhatsApp.</p>
 
 <form onsubmit="enviarWhatsApp(event,this)">

@@ -31,10 +31,6 @@ padding:20px;
 margin-bottom:25px;
 border-radius:10px;
 box-shadow:0 4px 10px rgba(0,0,0,.05);
-
-display:flex;
-flex-direction:column;
-height:100%;
 }
 
 /* HEADER */
@@ -132,21 +128,21 @@ border-radius:8px;
 margin-bottom:10px;
 }
 
+/* ===== ALINEACIÓN CUANDO HAYA 2 O MÁS TARJETAS ===== */
+@media(min-width:768px){
+
 .product h3{
-margin:10px 0 5px 0;
+min-height:70px;   /* títulos hasta 3 líneas */
 }
 
 .product p{
-flex-grow:1;
-margin-bottom:10px;
+min-height:55px;   /* descripciones hasta 2 líneas */
 }
 
 .product .price{
-margin:10px 0;
+min-height:25px;
 }
 
-.product button{
-margin-top:auto;
 }
 
 .price{

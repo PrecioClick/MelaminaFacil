@@ -173,6 +173,25 @@ text-align:center;
 margin-top:40px;
 }
 
+/* VIDEO RESPONSIVE PRO */
+.video-container{
+position:relative;
+width:100%;
+max-width:900px;
+margin:20px auto;
+padding-bottom:56.25%; /* 16:9 */
+height:0;
+}
+
+.video-container iframe{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+border-radius:10px;
+}
+
 </style>
 </head>
 
@@ -222,9 +241,13 @@ margin-top:40px;
 <!-- MÓDULO 1 -->
 <section class="card">
 <h2>Módulo 1: Conceptos Basicos</h2>
-<iframe id="iframe1" width="100%" height="260"
+  
+<div class="video-container">
+<iframe id="iframe1"
 src="https://www.youtube.com/embed/0lZaj1pyqpA?enablejsapi=1"
 allow="autoplay" allowfullscreen></iframe>
+</div>
+  
 <ul class="lista-videos">
 <li onclick="playPrincipal(1,this)">Qué es la melamina</li>
 <li onclick="abrirVideo('https://www.youtube.com/embed/9yX-9hFPXjw?autoplay=1',this)">Espesores de la Melamina</li>

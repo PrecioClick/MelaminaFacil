@@ -177,6 +177,21 @@ text-align:center;
 margin-top:40px;
 }
 
+/* VIDEO */
+.video-container{
+width:100%;
+max-width:650px;   /* tamaño máximo en PC */
+margin:20px auto;
+aspect-ratio:16/9;
+}
+
+.video-container iframe{
+width:100%;
+height:100%;
+border-radius:10px;
+border:0;
+}
+
 </style>
 </head>
 
@@ -227,9 +242,12 @@ margin-top:40px;
 <section class="card">
 <h2>Kits Recomendados</h2>
 
-<iframe id="iframe1" width="100%" height="260"
+<div class="video-container">
+<iframe id="iframe1"
 src="https://www.youtube.com/embed/uwVrmD41x_Q?enablejsapi=1"
-allow="autoplay" allowfullscreen></iframe>
+allow="autoplay"
+allowfullscreen></iframe>
+</div>
 
 <ul class="lista-videos">
 <li onclick="playPrincipal(1,this)">Herramientas Basicas Para Iniciar en Melamina</li>
@@ -244,9 +262,12 @@ allow="autoplay" allowfullscreen></iframe>
 <section class="card">
 <h2>Herramientas Opcionales</h2>
 
-<iframe id="iframe2" width="100%" height="260"
+<div class="video-container">
+<iframe id="iframe2"
 src="https://www.youtube.com/embed/ik87_eIQ_fA?enablejsapi=1"
-allow="autoplay" allowfullscreen></iframe>
+allow="autoplay"
+allowfullscreen></iframe>
+</div>
 
 <ul class="lista-videos">
 <li onclick="playPrincipal(2,this)">Herramientas Para Cortes Especiales</li>

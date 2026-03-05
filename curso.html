@@ -429,59 +429,57 @@ if (!localStorage.getItem("acceso")) {
 
 let players = {};
 let menu = document.getElementById("mobileMenu");
+let progresoVideos = JSON.parse(localStorage.getItem("progresoVideos")||"{}");
 
-// Guardar progreso de videos
-let progresoVideos = JSON.parse(localStorage.getItem("progresoVideos") || "{}");
-
-// Función para actualizar el check al final de cada título
-function actualizarCheck(videoKey, liElement) {
+// Actualiza el check al final del <li>
+function actualizarCheck(videoKey, liElement){
     let checkSpan = liElement.querySelector("span.check");
-    if (!checkSpan) {
+    if(!checkSpan){
         checkSpan = document.createElement("span");
-        checkSpan.className = "check";
-        checkSpan.style.color = "green";
-        checkSpan.style.marginLeft = "8px";
+        checkSpan.className="check";
+        checkSpan.style.color="green";
+        checkSpan.style.marginLeft="8px";
         liElement.appendChild(checkSpan);
     }
     checkSpan.textContent = (progresoVideos[videoKey] && progresoVideos[videoKey].completado) ? "✅" : "";
 }
 
-// CARGA API YOUTUBE
-function onYouTubeIframeAPIReady() {
-    for(let i=1; i<=7; i++) {
-        players[i] = new YT.Player('iframe'+i, {
-            events: {
+// API YouTube
+function onYouTubeIframeAPIReady(){
+    for(let i=1;i<=7;i++){
+        players[i] = new YT.Player('iframe'+i,{
+            events:{
                 'onReady': function(event){
                     let liList = document.querySelectorAll("#iframe"+i+" ~ ul li");
-                    liList.forEach((li, index)=>{
-                        let key = `principal-${i}-${index}`;
+                    liList.forEach((li,index)=>{
+                        let key=`principal-${i}-${index}`;
                         if(progresoVideos[key] && progresoVideos[key].tiempo){
-                            event.target.seekTo(progresoVideos[key].tiempo, true);
+                            event.target.seekTo(progresoVideos[key].tiempo,true);
                         }
-                        actualizarCheck(key, li);
+                        actualizarCheck(key,li);
                     });
                 },
                 'onStateChange': function(event){
-                    let id = i;
+                    let id=i;
                     let liList = document.querySelectorAll("#iframe"+id+" ~ ul li");
-                    liList.forEach((li, index)=>{
-                        let key = `principal-${id}-${index}`;
-                        if(event.data === YT.PlayerState.PLAYING){
+                    liList.forEach((li,index)=>{
+                        let key=`principal-${id}-${index}`;
+                        if(event.data===YT.PlayerState.PLAYING){
                             if(!progresoVideos[key]) progresoVideos[key]={};
                             if(!progresoVideos[key].interval){
-                                progresoVideos[key].interval = setInterval(()=>{
-                                    if(event.target.getPlayerState() === YT.PlayerState.PLAYING){
-                                        progresoVideos[key].tiempo = Math.floor(event.target.getCurrentTime());
-                                        localStorage.setItem("progresoVideos", JSON.stringify(progresoVideos));
+                                progresoVideos[key].interval=setInterval(()=>{
+                                    if(event.target.getPlayerState()===YT.PlayerState.PLAYING){
+                                        progresoVideos[key].tiempo=Math.floor(event.target.getCurrentTime());
+                                        localStorage.setItem("progresoVideos",JSON.stringify(progresoVideos));
                                     }
                                 },5000);
                             }
                         }
-                        if(event.data === YT.PlayerState.ENDED){
+                        if(event.data===YT.PlayerState.ENDED){
                             if(!progresoVideos[key]) progresoVideos[key]={};
-                            progresoVideos[key].completado = true;
-                            actualizarCheck(key, li);
-                            localStorage.setItem("progresoVideos", JSON.stringify(progresoVideos));
+                            progresoVideos[key].completado=true;
+                            actualizarCheck(key,li);
+                            localStorage.setItem("progresoVideos",JSON.stringify(progresoVideos));
                         }
                     });
                 }
@@ -491,7 +489,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 // REPRODUCIR VIDEO PRINCIPAL
-function playPrincipal(id, element){
+function playPrincipal(id,element){
     marcarActivo(element);
     players[id].playVideo();
 }
@@ -502,90 +500,96 @@ function marcarActivo(element){
     element.classList.add("activo");
 }
 
-// ABRIR VIDEO EN MODAL
-function abrirVideo(url, element){
+// ABRIR VIDEO MODAL
+function abrirVideo(url,liElement){
     Object.values(players).forEach(p=>p.pauseVideo());
-    marcarActivo(element);
-    let modal = document.getElementById("videoModal");
-    let frame = document.getElementById("videoFrame");
+    marcarActivo(liElement);
+    let modal=document.getElementById("videoModal");
+    let frame=document.getElementById("videoFrame");
     modal.style.display="flex";
 
-    let modalKey = url;
-    let progresoModal = progresoVideos[modalKey] || {};
-    let startTime = progresoModal.tiempo || 0;
+    let key=url;
+    let startTime=(progresoVideos[key] && progresoVideos[key].tiempo) ? progresoVideos[key].tiempo : 0;
 
+    // Destruir player previo
     if(frame.player){
         frame.player.destroy();
-        frame.player = null;
+        frame.player=null;
     }
 
-    frame.player = new YT.Player('videoFrame', {
+    // Crear nuevo player en el modal
+    frame.player=new YT.Player('videoFrame',{
         videoId: url.split("/embed/")[1].split("?")[0],
-        playerVars: { autoplay:1, start: startTime },
-        events: {
+        playerVars:{autoplay:1,start:startTime},
+        events:{
             'onStateChange': function(event){
-                if(event.data === YT.PlayerState.PLAYING){
-                    if(!progresoVideos[modalKey]) progresoVideos[modalKey]={};
-                    if(!progresoVideos[modalKey].interval){
-                        progresoVideos[modalKey].interval = setInterval(()=>{
-                            if(event.target.getPlayerState() === YT.PlayerState.PLAYING){
-                                progresoVideos[modalKey].tiempo = Math.floor(event.target.getCurrentTime());
-                                localStorage.setItem("progresoVideos", JSON.stringify(progresoVideos));
+                if(event.data===YT.PlayerState.PLAYING){
+                    if(!progresoVideos[key]) progresoVideos[key]={};
+                    if(!progresoVideos[key].interval){
+                        progresoVideos[key].interval=setInterval(()=>{
+                            if(event.target.getPlayerState()===YT.PlayerState.PLAYING){
+                                progresoVideos[key].tiempo=Math.floor(event.target.getCurrentTime());
+                                localStorage.setItem("progresoVideos",JSON.stringify(progresoVideos));
                             }
                         },5000);
                     }
                 }
-                if(event.data === YT.PlayerState.ENDED){
-                    if(!progresoVideos[modalKey]) progresoVideos[modalKey]={};
-                    progresoVideos[modalKey].completado = true;
-                    actualizarCheck(modalKey, element);
-                    localStorage.setItem("progresoVideos", JSON.stringify(progresoVideos));
+                if(event.data===YT.PlayerState.ENDED){
+                    if(!progresoVideos[key]) progresoVideos[key]={};
+                    progresoVideos[key].completado=true;
+                    actualizarCheck(key,liElement);
+                    localStorage.setItem("progresoVideos",JSON.stringify(progresoVideos));
                 }
             }
         }
     });
 
-    actualizarCheck(modalKey, element);
+    // Actualizar check al abrir por si ya estaba completado
+    actualizarCheck(key,liElement);
 }
 
 // CERRAR MODAL
 function cerrarVideo(){
-    let frame = document.getElementById("videoFrame");
-    let modalKey = frame.src;
+    let frame=document.getElementById("videoFrame");
     if(frame.player){
-        progresoVideos[modalKey] = progresoVideos[modalKey] || {};
-        progresoVideos[modalKey].tiempo = Math.floor(frame.player.getCurrentTime());
-        clearInterval(progresoVideos[modalKey].interval);
+        let key=frame.player.getVideoData().video_id;
+        progresoVideos[key]=progresoVideos[key]||{};
+        progresoVideos[key].tiempo=Math.floor(frame.player.getCurrentTime());
+        clearInterval(progresoVideos[key].interval);
     }
-    localStorage.setItem("progresoVideos", JSON.stringify(progresoVideos));
+    localStorage.setItem("progresoVideos",JSON.stringify(progresoVideos));
     frame.src="";
+    frame.player=null;
     document.getElementById("videoModal").style.display="none";
 }
 
+// CERRAR MODAL CON ICONO
+document.querySelector("#videoModal span").addEventListener("click",cerrarVideo);
+
 // CLICK FUERA DEL VIDEO
-document.getElementById("videoModal").addEventListener("click", function(e){
+document.getElementById("videoModal").addEventListener("click",function(e){
     if(e.target.id==="videoModal"){ cerrarVideo(); }
 });
 
 // MENU
 function toggleMenu(e){
     e.stopPropagation();
-    menu.style.display = menu.style.display==="flex" ? "none" : "flex";
+    menu.style.display=(menu.style.display==="flex")?"none":"flex";
 }
 
-document.addEventListener("click", function(e){
+document.addEventListener("click",function(e){
     if(menu.style.display==="flex" && !menu.contains(e.target) && !e.target.classList.contains("menu-toggle")){
         menu.style.display="none";
     }
 });
 
-window.addEventListener("scroll", function(){
+window.addEventListener("scroll",function(){
     if(menu.style.display==="flex"){ menu.style.display="none"; }
 });
 
 function cerrarSesion(){
-  localStorage.removeItem("acceso");
-  window.location.href = "index.html";
+    localStorage.removeItem("acceso");
+    window.location.href="index.html";
 }
 
 </script>

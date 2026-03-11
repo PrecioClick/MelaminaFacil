@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master en Melamina - Curso Online</title>
 
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1258103249058858');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1258103249058858&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+   <!-- Meta Pixel Code -->
+   <script>
+   !function(f,b,e,v,n,t,s)
+   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+   n.queue=[];t=b.createElement(e);t.async=!0;
+   t.src=v;s=b.getElementsByTagName(e)[0];
+   s.parentNode.insertBefore(t,s)}(window, document,'script',
+   'https://connect.facebook.net/en_US/fbevents.js');
+
+   fbq('init', '1258103249058858');
+   fbq('track', 'PageView');
+   fbq('track', 'ViewContent');
+
+   </script>
+
+   <noscript>
+   <img height="1" width="1" style="display:none"
+   src="https://www.facebook.com/tr?id=1258103249058858&ev=PageView&noscript=1"/>
+   </noscript>
+   <!-- End Meta Pixel Code -->
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -214,7 +219,7 @@ src="https://www.facebook.com/tr?id=1258103249058858&ev=PageView&noscript=1"
         <p class="text-5xl md:text-7xl font-black text-green-500 my-4">S/ 19.90</p>
 
         <a href="https://wa.me/51955267888?text=¡Hola!%20Estoy%20muy%20interesado%20en%20acceder%20al%20curso%20Master%20en%20Melamina%20y%20quiero%20obtener%20más%20información%20para%20empezar%20cuanto%20antes."
-        onclick="fbq('track','Lead');"
+        onclick="fbq('track','Lead'); fbq('track','Contact'); fbq('track','Purchase',{value:19.90,currency:'PEN'});"
         class="btn-green text-white font-black py-6 px-12 rounded-xl text-2xl md:text-3xl shadow-2xl inline-block mt-4">
         <i class="fas fa-shopping-cart mr-2"></i> OBTENER DESCUENTO
         </a>

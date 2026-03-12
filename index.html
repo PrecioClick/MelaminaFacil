@@ -362,16 +362,22 @@
    }
 
    document.getElementById("cupos").innerText = cupos;
-   document.getElementById("cuposBarra").innerText = cupos;
+
+if(document.getElementById("cuposBarra")){
+document.getElementById("cuposBarra").innerText = cupos;
+}
 
    function reducirCupos(){
 
    if(cupos > 4){
    cupos--;
    localStorage.setItem("cuposLanding", cupos);
+       
    document.getElementById("cupos").innerText = cupos;
-   document.getElementById("cuposBarra").innerText = cupos;
-   }
+
+if(document.getElementById("cuposBarra")){
+document.getElementById("cuposBarra").innerText = cupos;
+}
 
    }
 

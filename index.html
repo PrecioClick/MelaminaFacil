@@ -362,9 +362,8 @@
    }
 
    document.getElementById("cupos").innerText = cupos;
-
-if(document.getElementById("cuposBarra")){
-document.getElementById("cuposBarra").innerText = cupos;
+const barra = document.getElementById("cuposBarra");
+if(barra) barra.innerText = cupos;
 }
 
    function reducirCupos(){
@@ -374,9 +373,8 @@ document.getElementById("cuposBarra").innerText = cupos;
    localStorage.setItem("cuposLanding", cupos);
        
    document.getElementById("cupos").innerText = cupos;
-
-if(document.getElementById("cuposBarra")){
-document.getElementById("cuposBarra").innerText = cupos;
+const barra = document.getElementById("cuposBarra");
+if(barra) barra.innerText = cupos;
 }
 
    }

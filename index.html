@@ -354,29 +354,31 @@
     const intervalo = setInterval(actualizarContador, 1000);
     actualizarContador();
 
-    let cupos = localStorage.getItem("cuposLanding");
+    let cupos = parseInt(localStorage.getItem("cuposLanding"));
 
-    if(!cupos){
-    cupos = 13;
-    localStorage.setItem("cuposLanding", cupos);
-    }
+if(!cupos){
+cupos = 13;
+localStorage.setItem("cuposLanding", cupos);
+}
 
-    document.getElementById("cupos").innerText = cupos;
-    document.getElementById("cuposBarra").innerText = cupos;
+function actualizarCupos(){
+document.getElementById("cupos").innerText = cupos;
+document.getElementById("cuposBarra").innerText = cupos;
+}
 
-    function reducirCupos(){
+actualizarCupos();
 
-    if(cupos > 4){
-    cupos--;
-    localStorage.setItem("cuposLanding", cupos);
+function reducirCupos(){
 
-    document.getElementById("cupos").innerText = cupos;
-    document.getElementById("cuposBarra").innerText = cupos;
-    }
+if(cupos > 4){
+cupos--;
+localStorage.setItem("cuposLanding", cupos);
+actualizarCupos();
+}
 
-    }
+}
 
-    setInterval(reducirCupos, 45000);
+setInterval(reducirCupos, 45000);
         
     function actualizarVisitantes(){
 let numero = Math.floor(Math.random() * 18) + 18;

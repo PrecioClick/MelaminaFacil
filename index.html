@@ -354,26 +354,30 @@
     const intervalo = setInterval(actualizarContador, 1000);
     actualizarContador();
 
-   let cupos = localStorage.getItem("cuposLanding");
+    let cupos = localStorage.getItem("cuposLanding");
 
-   if(!cupos){
-   cupos = 13;
-   localStorage.setItem("cuposLanding", cupos);
-   }
+    if(!cupos){
+    cupos = 13;
+    localStorage.setItem("cuposLanding", cupos);
+    }
 
-   document.getElementById("cupos").innerText = cupos;
+    document.getElementById("cupos").innerText = cupos;
+    document.getElementById("cuposBarra").innerText = cupos;
 
-   function reducirCupos(){
+    function reducirCupos(){
 
-   if(cupos > 4){
-   cupos--;
-   localStorage.setItem("cuposLanding", cupos);
-   document.getElementById("cupos").innerText = cupos;
-   }
+    if(cupos > 4){
+    cupos--;
+    localStorage.setItem("cuposLanding", cupos);
 
-   }
+    document.getElementById("cupos").innerText = cupos;
+    document.getElementById("cuposBarra").innerText = cupos;
+    }
 
-   setInterval(reducirCupos, 45000);
+    }
+
+    setInterval(reducirCupos, 45000);
+        
     function actualizarVisitantes(){
 let numero = Math.floor(Math.random() * 18) + 18;
 document.getElementById("visitantes").innerText = numero;
@@ -424,7 +428,8 @@ box-shadow:0 -2px 10px rgba(0,0,0,0.3);
 ">
 
 <span style="font-weight:bold;">
-🔥 90% OFF HOY — <strong>S/19.90</strong>
+🔥 90% OFF HOY — <strong>S/19.90</strong><br>
+⏰ Solo quedan <span id="cuposBarra">13</span> cupos
 </span>
 
 <a href="https://wa.me/51955267888?text=Hola%20quiero%20acceder%20al%20Curso%20Master%20en%20Melamina.%20¿Podrías%20enviarme%20los%20detalles%20y%20los%20medios%20de%20pago%20para%20aprovechar%20la%20promoción%20de%20S/19.90?"

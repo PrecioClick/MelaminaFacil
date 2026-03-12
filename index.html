@@ -354,37 +354,30 @@
     const intervalo = setInterval(actualizarContador, 1000);
     actualizarContador();
 
-  let cupos = localStorage.getItem("cuposLanding");
+  let cupos = parseInt(localStorage.getItem("cuposLanding"), 10);
 
-if(!cupos){
-cupos = 13;
-localStorage.setItem("cuposLanding", cupos);
+if(isNaN(cupos)){
+    cupos = 13;
+    localStorage.setItem("cuposLanding", cupos);
 }
 
-document.getElementById("cupos").innerText = cupos;
+// Elementos de la página
+const cuposElem = document.getElementById("cupos");
+const barraElem = document.getElementById("cuposBarra");
 
-const barra = document.getElementById("cuposBarra");
-if(barra){
-barra.innerText = cupos;
+// Actualizar al cargar
+if(cuposElem) cuposElem.innerText = cupos;
+if(barraElem) barraElem.innerText = cupos;
+
+function reducirCupos() {
+    if(cupos > 4){
+        cupos--;
+        localStorage.setItem("cuposLanding", cupos);
+
+        if(cuposElem) cuposElem.innerText = cupos;
+        if(barraElem) barraElem.innerText = cupos;
+    }
 }
-
-function reducirCupos(){
-
-if(cupos > 4){
-cupos--;
-localStorage.setItem("cuposLanding", cupos);
-
-document.getElementById("cupos").innerText = cupos;
-
-const barra = document.getElementById("cuposBarra");
-if(barra){
-barra.innerText = cupos;
-}
-
-}
-
-}
-
 
    setInterval(reducirCupos, 45000);
     function actualizarVisitantes(){
